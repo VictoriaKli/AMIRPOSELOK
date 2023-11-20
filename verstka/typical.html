@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Бобров ручей</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="./img/Favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./img/Favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./img/Favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./img/Favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./img/Favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./img/Favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./img/Favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./img/Favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/Favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="./img/Favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/Favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./img/Favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/Favicon/favicon-16x16.png">
+    <link rel="manifest" href="./img/Favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link rel="preload" href="./fonts/inter/Inter-ExtraBold.eot" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-ExtraBold.eot?#iefix" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-ExtraBold.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-ExtraBold.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-ExtraBold.ttf" as="font" crossorigin="anonymous">
+
+    <link rel="preload" href="./fonts/inter/Inter-Regular.eot" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-Regular.eot?#iefix" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-Regular.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-Regular.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-Regular.ttf" as="font" crossorigin="anonymous">
+
+
+    <link rel="preload" href="./fonts/inter/Inter-Bold.eot" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-Bold.eot?#iefix" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-Bold.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-Bold.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-Bold.ttf" as="font" crossorigin="anonymous">
+
+    <link rel="preload" href="./fonts/inter/Inter-LightBETA.eot" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-LightBETA.eot?#iefix" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-LightBETA.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-LightBETA.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-LightBETA.ttf" as="font" crossorigin="anonymous">
+
+    <link rel="preload" href="./fonts/inter/Inter-SemiBold.eot" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-SemiBold.eot?#iefix" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-SemiBold.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-SemiBold.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-SemiBold.ttf" as="font" crossorigin="anonymous">
+
+    <link rel="preload" href="./fonts/Yeseva/Inter-SemiBold.eot" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/Yeseva/Inter-SemiBold.eot?#iefix" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/Yeseva/Inter-SemiBold.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/Yeseva/Inter-SemiBold.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/Yeseva/Inter-SemiBold.ttf" as="font" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="./css/libs.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="text/javascript" src="./js/libs/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="./js/libs/jquery.transit.js"></script>
+    <script
+      type="text/javascript"
+      src="./js/libs/intersection-observer.js"
+    ></script>
+    <script type="text/javascript" src="./js/libs/util.js"></script>
+    <script type="text/javascript" src="./js/libs/device.min.js"></script>
+    <script type="text/javascript" src="./js/libs/cleave.min.js"></script>
+    <script type="text/javascript" src="./js/libs/modal.js"></script>
+    <script type="text/javascript" src="./js/libs/jquery.fancybox.js"></script>
+    <script
+      type="text/javascript"
+      src="./js/libs/jquery.mCustomScrollbar.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./js/libs/jquery.nice-select.min.js"
+    ></script>
+    <script type="text/javascript" src="./js/libs/nouislider.min.js"></script>
+    <script type="text/javascript" src="./js/libs/slick.min.js"></script>
+    <script
+      type="text/javascript"
+      src="./js/libs/jquery.bootstrap-touchspin.min.js"
+    ></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+  </head>
+
+
+
+  <body>
+
+
+    <header class="header js-header">
+      <div class="header__main">
+        <div class="container">
+          <div class="header__main-wp">
+            <div class="header__burger js-burger-mob">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <a href="#" class="header__main-logo">
+              <img src="./img/svg/logo.svg" alt="" title="" class="header__main-logo-img">
+              <img src="./img/svg/logo-white.svg" alt="" title="" class="header__main-logo-img header__main-logo-img--black">
+            </a>
+            <div class="header__main-nav">
+              <nav class="header__main-nav-top">
+                <ul class="header__menu-top">
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Застройщик</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Архитектура</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Галерея</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Ход строительства</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Новости</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Акции</a>
+                  </li>
+                </ul>
+              </nav>
+              <nav class="header__main-nav-bottom">
+                <ul class="header__menu-bottom">
+                  <li class="header__menu-bottom-item">
+                    <a href="#" class="header__menu-bottom-item-link">О посёлке</a>
+                  </li>
+                  <li class="header__menu-bottom-item">
+                    <a href="#" class="header__menu-bottom-item-link">Каталог коттеджей</a>
+                  </li>
+                  <li class="header__menu-bottom-item">
+                    <a href="#" class="header__menu-bottom-item-link">Генплан</a>
+                  </li>
+                  <li class="header__menu-bottom-item">
+                    <a href="#" class="header__menu-bottom-item-link">Расположение</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="header__main-actions">
+              <a href="tel:+7 903 789 25 60" class="social-link social-link--phone">
+               <span class="social-link-icon">
+                  <svg class="icon icon-phone"><use xlink:href="#icon-phone"></use></svg>
+               </span>
+               <span class="social-link__text">
+                +7 903 789 25 60
+               </span>
+              </a>
+              <span class="social-info">
+                Московская область,
+              Наро-фоминский район, ДП «Бобров-Ручей»
+              </span>
+              <a href="#" class="social-link">
+                <span class="social-link-icon">
+                  <svg class="icon icon-vk"><use xlink:href="#icon-vk"></use></svg>
+                </span>
+              </a>
+              <a href="#" class="social-link">
+                <span class="social-link-icon">
+                  <svg class="icon icon-yt"><use xlink:href="#icon-yt"></use></svg>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header__fixed">
+        <div class="container">
+          <div class="header__fixed-wp">
+            <div class="header__burger js-burger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <a href="#" class="header__fixed-logo">
+              <img src="./img/svg/logo-black.svg" alt="" title="">
+            </a>
+            <nav class="header__main-nav-bottom">
+              <ul class="header__menu-bottom">
+                <li class="header__menu-bottom-item">
+                  <a href="#" class="header__menu-bottom-item-link">О посёлке</a>
+                </li>
+                <li class="header__menu-bottom-item">
+                  <a href="#" class="header__menu-bottom-item-link">Каталог коттеджей</a>
+                </li>
+                <li class="header__menu-bottom-item">
+                  <a href="#" class="header__menu-bottom-item-link">Генплан</a>
+                </li>
+                <li class="header__menu-bottom-item">
+                  <a href="#" class="header__menu-bottom-item-link">Расположение</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="header__main-actions">
+              <a href="tel:+7 903 789 25 60" class="social-link social-link--phone">
+               <span class="social-link-icon">
+                  <svg class="icon icon-phone"><use xlink:href="#icon-phone"></use></svg>
+               </span>
+               <span class="social-info">
+                Московская область,
+              Наро-фоминский район, ДП «Бобров-Ручей»
+              </span>
+               <span class="social-link__text">
+                +7 903 789 25 60
+               </span>
+              </a>
+              <a href="#" class="social-link">
+                <span class="social-link-icon">
+                  <svg class="icon icon-vk"><use xlink:href="#icon-vk"></use></svg>
+                </span>
+              </a>
+              <a href="#" class="social-link">
+                <span class="social-link-icon">
+                  <svg class="icon icon-yt"><use xlink:href="#icon-yt"></use></svg>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="header__catalog js-header-catalog-new">
+            <div class="container">
+              <nav class="header__main-nav-top">
+                <ul class="header__menu-top">
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Застройщик</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Архитектура</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Галерея</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Ход строительства</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Новости</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Акции</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header__mobile js-header-mobile">
+        <div class="container">
+          <div class="header__main-actions">
+            <a href="tel:+7 903 789 25 60" class="social-link social-link--phone">
+             <span class="social-link-icon">
+                <svg class="icon icon-phone"><use xlink:href="#icon-phone"></use></svg>
+             </span>
+             <span class="social-link__text">
+              +7 903 789 25 60
+             </span>
+            </a>
+            <span class="social-info">
+              Московская область,
+            Наро-фоминский район, ДП «Бобров-Ручей»
+            </span>
+            <a href="#" class="social-link">
+              <span class="social-link-icon">
+                <svg class="icon icon-vk"><use xlink:href="#icon-vk"></use></svg>
+              </span>
+            </a>
+            <a href="#" class="social-link">
+              <span class="social-link-icon">
+                <svg class="icon icon-yt"><use xlink:href="#icon-yt"></use></svg>
+              </span>
+            </a>
+          </div>
+          <nav class="header__main-nav-bottom">
+            <ul class="header__menu-bottom">
+              <li class="header__menu-bottom-item">
+                <a href="#" class="header__menu-bottom-item-link">О посёлке</a>
+              </li>
+              <li class="header__menu-bottom-item">
+                <a href="#" class="header__menu-bottom-item-link">Расположение</a>
+              </li>
+              <li class="header__menu-bottom-item">
+                <a href="#" class="header__menu-bottom-item-link">Генплан</a>
+              </li>
+              <li class="header__menu-bottom-item">
+                <a href="#" class="header__menu-bottom-item-link">Каталог коттеджей</a>
+              </li>
+            </ul>
+          </nav>
+          <nav class="header__main-nav-top">
+            <ul class="header__menu-top">
+              <li class="header__menu-top-item">
+                <a href="#" class="header__menu-top-item-link">Застройщик</a>
+              </li>
+              <li class="header__menu-top-item">
+                <a href="#" class="header__menu-top-item-link">Архитектура</a>
+              </li>
+              <li class="header__menu-top-item">
+                <a href="#" class="header__menu-top-item-link">Галерея</a>
+              </li>
+              <li class="header__menu-top-item">
+                <a href="#" class="header__menu-top-item-link">Ход строительства</a>
+              </li>
+              <li class="header__menu-top-item">
+                <a href="#" class="header__menu-top-item-link">Новости</a>
+              </li>
+              <li class="header__menu-top-item">
+                <a href="#" class="header__menu-top-item-link">Акции</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div class="wrapper">
+      <script>
+        if (window.location.pathname.replace('/','') === "home.html") {
+          $('body').addClass('main-page');
+        }
+      </script>
+<div class="content-entry content-entry--secondary">
+
+    <div class="container">
+      <div class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+                <a href="/" class="breadcrumbs__link breadcrumbs__link--main">
+                  <svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>
+                </a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a href="/#/" class="breadcrumbs__link">
+                  Раздел
+                </a>
+            </li>
+        </ul>
+    </div>
+        <h1>H1. Длинный заголовок типовой
+страницы, чтобы настроить интерлиньяж</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="content">
+      <p>Эта страница создана для демонстрации блоков и элементов, которые используются на сайте, и служит руководством для всех, кто работает над ним. Дизайнеры и технологи отрабатывают здесь стили, чтобы добиться приемлемых результатов в различных сочетаниях блоков и элементов. Контент-менеджеры и редакторы используют страницу в качестве справочника по верстке типовых страниц. Здесь же рассказывается о некоторых общих правилах оформления контента.</p>
+      <img src="./img/main/typical-img.jpg" alt="">
+      <p class="img-sub">Подпись к фотографии</p>
+      <h2>H2. Многострочный заголовок, длина которого иногда бывает так некстати</h2>
+      <p>Типовые элементы оформляются в системе администрирования через визуальный редактор . Чтобы контент-менеджеру было легче в них ориентироваться, их количество лучше свести к необходимому минимуму.</p>
+      <h3>H3. Делаем заголовки нарочито длинными, чтобы убедиться в правильном интерлиньяже</h3>
+      <p>Имманентный подход подразумевает отношение к тексту как к автономной реальности, нацеленность на выявление его внутренней структуры. Репрезентативный — рассмотрение текста как особой формы представления знаний о внешней тексту действительности.</p>
+      <h4>H4. В первую очередь нас интересуют интерлиньяж и отступы, но не стоит забывать и про сам заголовок</h4>
+      <p>Текст состоит из некоторого количества предложений. Одно предложение, даже очень распространённое, сложное, текстом назвать нельзя, поскольку текст можно расчленить на самостоятельные предложения, а части предложения сочетаются по законам синтаксиса сложного предложения, но не текста. Одно предложение, даже очень распространённое, сложное, текстом назвать нельзя, поскольку текст можно расчленить на самостоятельные предложения, а части предложения сочетаются по законам синтаксиса сложного предложения, но не текста.</p>
+      <div class="no-photo typical-content">
+        <img class="" src="./img/svg/no-photo.svg" alt="">
+      </div>
+
+      <h5>H5. Заголовок пятого уровня</h5>
+      <p>Текст состоит из некоторого количества предложений. Одно предложение, даже очень распространённое, сложное, текстом назвать нельзя, поскольку текст можно расчленить на самостоятельные предложения, а части предложения сочетаются по законам синтаксиса сложного предложения, но не текста.</p>
+      <h6>H6. Низкоуровневый заголовок</h6>
+      <p>Самый «нижний» заголовок &lt;h6&gt; может предварять такие элементы, как «Комментарий» или «Таблица».Если за заголовком более низкого уровня сразу следует заголовок более высокого, это нарушает композиционную связность элементов оформления и логику повествования. Поэтому после заголовка должен следовать текст (или иной контент), который этот заголовок и подчиненные ему подзаголовки, если они есть, озаглавливают.</p>
+      <h6>Списки</h6>
+      <p>Кроме того, существуют правила оформления списков:</p>
+      <ul>
+        <li>
+          Если пункты списка длинные и представляют собой развернутые предложения, они должны начинаться с прописной буквы и заканчиваться точкой.
+          <ul>
+            <li>Если пункты списка длинные и представляют собой развернутые предложения, они должны начинаться с прописной буквы и заканчиваться точкой.</li>
+            <li>Если пункты списка короткие, не являются самостоятельной законченной конструкцией и грамматически тесно связаны с предшествующей списку вводной фразой, они должны начинаться со строчной буквы и заканчиваться точкой с запятой (в конце последнего пункта — точка).</li>
+          </ul>
+        </li>
+        <li>Если пункты списка длинные и представляют собой развернутые предложения, они должны начинаться с прописной буквы и заканчиваться точкой.</li>
+        <li>Если пункты списка короткие, не являются самостоятельной законченной конструкцией и грамматически тесно связаны с предшествующей списку вводной фразой, они должны начинаться со строчной буквы и заканчиваться точкой с запятой (в конце последнего пункта — точка).</li>
+      </ul>
+      <h6>Нумерованные Списки</h6>
+      <p>Это набор элементов (пунктов списка), имеющих определённую последовательность. Каждый пункт нумерованного списка имеет:</p>
+      <ol>
+        <li>Если пункты списка длинные и представляют собой развернутые предложения, они должны начинаться с прописной буквы и заканчиваться точкой.
+        </li>
+        <li>Если пункты списка длинные и представляют собой развернутые предложения, они должны начинаться с прописной буквы и заканчиваться точкой.</li>
+      </ol>
+      <h6>Ссылки</h6>
+      <p>Состояния ссылок на сайте: <a href="#">link</a> — это состояние ссылки до ее активации, <a href="#">visited</a> — состояние, в которое переходит ссылка после ее активации, <a href="#">hover</a> — состояние, когда указатель мыши наведен на ссылку. <a href="#">active</a> — состояние, возникающее при щелчке на ссылке для ее активизации.
+      </p><p>На сайте может встречаться несколько видов ссылок. Например, ссылка на <a href="https://yandex.ru/">Яндекс <img src="./img/svg/out-window.svg" alt=""></a> является внешней. Внутренние ссылки могут открываться по умолчанию в текущем окне (например, переход на главную страницу) или в  <a href="https://yandex.ru/" target="_blank">новом окне <img src="./img/svg/new-window.svg" alt=""></a> (например, для показа изображений в оригинальном размере).</p>
+      <h6>Цитата</h6>
+      <p>Используйте элемент «Комментарий» внутри цитаты для выделения информации об источнике.</p>
+      <blockquote>
+        <p>«Запомните мой завет: никогда не выдумывайте ни фабулы, ни интриг. Берите то, что даёт сама жизнь. Жизнь куда богаче всех наших выдумок! Никакое воображение не придумает вам того, что даёт иногда самая обыкновенная, заурядная жизнь, уважайте жизнь!»</p>
+        <cite>Фёдор Миха́йлович Достое́вский</cite>
+      </blockquote>
+      <h6>Важно</h6>
+      <p class="warning">Элемент «Важно». Используется для выделения особо важной информации. И еще немного специально написанного текста, чтобы получилось несколько строк для наглядности.</p>
+      <h6>Таблицы</h6>
+      <div class="table-responsive">
+        <table>
+            <thead>
+            <tr>
+                <th>Заголовочная ячейка</th>
+                <th>Заголовочная ячейка</th>
+                <th>Заголовочная ячейка</th>
+                <th>Заголовочная ячейка</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Ячейка с информацией</td>
+                <td>Ячейка с информацией</td>
+                <td>Ячейка с информацией</td>
+                <td>Ячейка с информацией</td>
+            </tr>
+            <tr>
+                <td>Ячейка с информацией</td>
+                <td>Ячейка с информацией</td>
+                <td>Ячейка с информацией</td>
+                <td>Ячейка с информацией</td>
+            </tr>
+            <tr>
+                <td>Ячейка с информацией</td>
+                <td>Ячейка с информацией</td>
+                <td>Ячейка с информацией</td>
+                <td>Ячейка с информацией</td>
+            </tr>
+            <tr>
+                <td>Ячейка с информацией</td>
+                <td>Ячейка с информацией</td>
+                <td>Ячейка с информацией</td>
+                <td>Ячейка с информацией</td>
+            </tr>
+            <tr>
+                <td>Ячейка с информацией</td>
+                <td>Ячейка с информацией</td>
+                <td>Ячейка с информацией</td>
+                <td>Ячейка с информацией</td>
+            </tr>
+            <tr>
+                <td>Ячейка с информацией</td>
+                <td>Ячейка с информацией</td>
+                <td>Ячейка с информацией</td>
+                <td>Ячейка с информацией</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    </section>
+    </div>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__wp">
+      <div class="footer__wp-menu">
+        <nav class="header__main-nav-bottom">
+          <ul class="header__menu-bottom">
+            <li class="header__menu-bottom-item">
+              <a href="#" class="header__menu-bottom-item-link">О посёлке</a>
+            </li>
+            <li class="header__menu-bottom-item">
+              <a href="#" class="header__menu-bottom-item-link">Расположение</a>
+            </li>
+            <li class="header__menu-bottom-item">
+              <a href="#" class="header__menu-bottom-item-link">Генплан</a>
+            </li>
+            <li class="header__menu-bottom-item">
+              <a href="#" class="header__menu-bottom-item-link">Каталог коттеджей</a>
+            </li>
+          </ul>
+        </nav>
+        <nav class="header__main-nav-top">
+          <ul class="header__menu-top">
+            <li class="header__menu-top-item">
+              <a href="#" class="header__menu-top-item-link">Застройщик</a>
+            </li>
+            <li class="header__menu-top-item">
+              <a href="#" class="header__menu-top-item-link">Архитектура</a>
+            </li>
+            <li class="header__menu-top-item">
+              <a href="#" class="header__menu-top-item-link">Галерея</a>
+            </li>
+            <li class="header__menu-top-item">
+              <a href="#" class="header__menu-top-item-link">Ход строительства</a>
+            </li>
+            <li class="header__menu-top-item">
+              <a href="#" class="header__menu-top-item-link">Новости</a>
+            </li>
+            <li class="header__menu-top-item">
+              <a href="#" class="header__menu-top-item-link">Акции</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header__main-actions">
+        <a href="tel:+7 903 789 25 60" class="social-link social-link--phone">
+         <span class="social-link-icon">
+            <svg class="icon icon-phone"><use xlink:href="#icon-phone"></use></svg>
+         </span>
+         <span class="social-link__text">
+          +7 903 789 25 60
+         </span>
+        </a>
+        <span class="social-info">
+          Московская область,
+        Наро-фоминский район, ДП «Бобров-Ручей»
+        </span>
+        <a href="#" class="social-link">
+          <span class="social-link-icon">
+            <svg class="icon icon-vk"><use xlink:href="#icon-vk"></use></svg>
+          </span>
+        </a>
+        <a href="#" class="social-link">
+          <span class="social-link-icon">
+            <svg class="icon icon-yt"><use xlink:href="#icon-yt"></use></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer__info">
+    <div class="container">
+      <div class="footer__info-wp">
+        <span class="footer__info-copy">
+          © ООО «МАСТ ПРОДЖЕКТ» 2023
+        </span>
+        <a href="#" class="footer__info-link">
+          Карта сайта
+        </a>
+        <a href="#" class="footer__info-link">
+          Политика конфиденциальности
+        </a>
+        <a href="#" class="footer__info-link footer__info-link--logo">
+          <svg class="icon icon-logo-p"><use xlink:href="#icon-logo-p"></use></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <symbol id="icon-yt" viewBox="0 0 32 32">
+      <path d="M8.094 11.012c-0.659 0.847-0.659 2.165-0.659 4.706s0 3.859 0.659 4.706c0.094 0.188 0.282 0.282 0.471 0.471 0.847 0.659 2.165 0.659 4.706 0.659h5.082c2.541 0 3.859 0 4.706-0.659 0.188-0.094 0.282-0.282 0.471-0.471 0.659-0.847 0.659-2.165 0.659-4.706s0-3.859-0.659-4.706c-0.094-0.188-0.282-0.282-0.471-0.471-0.847-0.659-2.165-0.659-4.706-0.659h-5.082c-2.541 0-3.859 0-4.706 0.659-0.188 0.188-0.282 0.376-0.471 0.471zM19.2 15.812l-5.082 2.824v-5.741l5.082 2.918z"></path>
+    </symbol>
+    <symbol id="icon-vk" viewBox="0 0 32 32">
+      <path d="M16.471 21.929c-5.647 0-8.847-3.859-8.941-10.259h2.824c0.094 4.706 2.165 6.682 3.859 7.059v-7.059h2.635v4.047c1.694-0.188 3.388-1.976 3.953-4.047h2.635c-0.471 2.541-2.353 4.329-3.576 5.082 1.318 0.659 3.482 2.165 4.235 5.082h-2.918c-0.659-1.976-2.259-3.388-4.235-3.671v3.671h-0.471z"></path>
+    </symbol>
+    <symbol id="icon-phone" viewBox="0 0 32 32">
+      <path d="M14.72 10.88l-1.707 1.387c0 0 0.64 1.813 2.24 3.733 1.813 2.133 3.2 2.987 3.2 2.987l1.707-1.387 4.267 3.733-3.307 2.773c-0.32 0.32-0.747 0.32-1.173 0.107-1.387-0.747-4.8-2.88-7.573-6.293s-3.733-6.72-4.053-8c-0.107-0.32 0.107-0.64 0.32-0.853l3.413-2.88 2.667 4.693z"></path>
+    </symbol>
+    <symbol id="icon-logo-p" viewBox="0 0 36 32">
+      <path d="M26.667 9.371c0 2.438-1.067 4.648-2.667 6.248-1.676 1.676-3.962 2.667-6.476 2.667-2.057 0-3.886-0.686-5.41-1.752 0.762 0.152 1.6 0.076 2.286-0.229 0.99 0.381 1.981 0.686 3.124 0.686 2.133 0 4.114-0.838 5.486-2.21s2.286-3.276 2.286-5.333c0-0.61-0.076-1.143-0.152-1.676-0.229 0.457-0.686 0.914-1.143 1.219-1.6 1.067-3.352 1.219-5.181 1.143 0-0.152 0.076-0.229 0.076-0.381 0.076-0.305 0.152-0.61 0.305-0.99 1.448 0 2.819-0.152 3.962-0.914 0.914-0.61 1.371-1.905 0.686-2.819s-2.057-0.99-2.971-0.381c-1.6 1.067-2.133 2.971-2.743 4.876-0.61 2.133-1.219 4.267-3.276 5.638-0.762 0.533-1.752 0.762-2.59 0.61-2.819-0.381-3.886-4.114-3.886-6.476 0-2.438 1.067-4.648 2.667-6.248 1.676-1.6 3.962-2.59 6.476-2.59 2.057 0 3.886 0.686 5.41 1.752-0.762-0.152-1.6-0.076-2.286 0.229-0.99-0.381-1.981-0.686-3.124-0.686-2.133 0-4.114 0.838-5.486 2.21s-2.286 3.276-2.286 5.333c0 0.61 0.076 1.143 0.152 1.676 0.229-0.457 0.686-0.914 1.143-1.219 1.6-1.067 3.352-1.219 5.181-1.143 0 0.152-0.076 0.229-0.076 0.381-0.076 0.305-0.152 0.61-0.305 0.99-1.448 0-2.819 0.152-3.962 0.914-0.914 0.61-1.371 1.905-0.686 2.819s2.057 0.99 2.971 0.381c1.6-1.067 2.133-2.971 2.743-4.876 0.61-2.133 1.219-4.267 3.276-5.638 0.762-0.533 1.752-0.762 2.59-0.61 2.819 0.381 3.886 4.114 3.886 6.4z"></path>
+      <path d="M1.219 22.629h2.133c0.076 0 0.152 0 0.229 0.076s0.076 0.076 0.076 0.152 0 0.152-0.076 0.152-0.152 0.076-0.229 0.076h-2.133v-0.457zM0 22.324c0 0.838 0 1.6 0 2.438 0 0.381 0.152 0.533 0.61 0.533h3.048c0.457 0 0.762-0.076 0.914-0.229s0.305-0.381 0.305-0.762c0-0.457-0.152-0.686-0.533-0.838 0.152-0.076 0.229-0.152 0.305-0.229 0.076-0.152 0.152-0.305 0.152-0.457 0-0.457-0.152-0.686-0.381-0.838-0.152-0.076-0.457-0.152-0.838-0.152-0.99 0-1.905 0-2.895 0-0.457-0.076-0.61 0.076-0.686 0.533zM1.219 23.924h2.133c0.152 0 0.229 0 0.229 0.076 0.076 0.076 0.076 0.152 0.076 0.229 0 0.152-0.152 0.305-0.381 0.305h-2.057v-0.61z"></path>
+      <path d="M9.829 23.543c0-0.229 0-0.457-0.152-0.61-0.229-0.305-0.61-0.305-1.219-0.305-0.686 0-1.067 0-1.219 0.305-0.152 0.152-0.152 0.457-0.152 0.686s0 0.457 0.152 0.61c0.229 0.229 0.61 0.305 1.219 0.305 0.686 0 1.067-0.076 1.219-0.305s0.152-0.533 0.152-0.686zM5.867 23.543c0-0.838 0.229-1.219 0.457-1.524 0.457-0.457 1.448-0.457 2.133-0.457s1.676-0.076 2.133 0.457c0.305 0.305 0.457 0.61 0.457 1.524 0 0.838-0.229 1.219-0.457 1.524-0.457 0.457-1.448 0.457-2.133 0.457s-1.676 0-2.133-0.457c-0.305-0.305-0.457-0.686-0.457-1.524z"></path>
+      <path d="M15.086 25.448c0.305 0 0.61-0.076 0.838-0.152 0.457-0.152 0.686-0.381 0.838-0.762 0.076-0.152 0.076-0.381 0.076-0.686h-1.219c0 0.533-0.762 0.533-1.295 0.533-0.457 0-1.067 0-1.143-0.533 0-0.076 0-0.229 0-0.381s0-0.305 0-0.381c0.076-0.533 0.686-0.533 1.143-0.533s1.219 0 1.295 0.533h1.219c0-0.305 0-0.533-0.076-0.686-0.152-0.381-0.381-0.61-0.838-0.762-0.229-0.076-0.533-0.152-0.838-0.152-0.99-0.076-2.743-0.152-2.971 1.067-0.076 0.229-0.076 0.457-0.076 0.914v0c0 0.381 0 0.686 0.076 0.914 0.229 1.219 1.981 1.143 2.971 1.067z"></path>
+      <path d="M23.39 21.714h2.057l0.914 2.057c0.229 0.381 0.076 0.305 0.229 0l0.99-2.057h1.981v3.657h-1.143v-2.895l-1.067 2.133c-0.305 0.61-0.305 0.686-0.838 0.686-0.381 0-0.533-0.152-0.762-0.61l-1.219-2.286v2.895h-1.143v-3.581z"></path>
+      <path d="M32.152 23.543v0.838h1.676c0.305 0 0.381-0.152 0.381-0.457s-0.152-0.457-0.381-0.457l-1.676 0.076zM30.933 25.371v-3.657h1.219v0.914h1.676c0.99 0 1.371 0.381 1.371 1.371 0 1.067-0.457 1.371-1.448 1.371h-2.819z"></path>
+      <path d="M17.981 24.686c0-0.762 0-1.524 0-2.362 0-0.533 0.229-0.686 0.686-0.686 1.219 0 2.21 0 3.429 0 0 0.305 0 0.61 0 0.914-0.99 0-1.905 0-2.895 0 0 0.152 0 0.305 0 0.533 0.99 0 1.829 0 2.743 0 0 0.305 0 0.61 0 0.838-0.99 0-1.829 0-2.743 0 0 0.152 0 0.305 0 0.533 0.99 0 1.905 0 2.895 0 0 0.305 0 0.61 0 0.914-1.219 0-2.286 0-3.429 0-0.457 0-0.686-0.229-0.686-0.686z"></path>
+      <path d="M1.067 27.657h2.895c0.762 0 1.067 0.61 1.067 1.219 0 0.838 0 1.6 0 2.438h-1.143v-2.133c0-0.533-0.152-0.61-0.61-0.61s-0.914 0-1.448 0c-0.457 0-0.61 0.076-0.61 0.61v2.133h-1.219c0-0.838 0-1.6 0-2.438 0.076-0.61 0.381-1.219 1.067-1.219z"></path>
+      <path d="M14.324 29.79h1.524c-0.838-1.676-0.686-1.752-1.524 0zM15.086 27.657c0.762 0 0.914 0.076 1.295 0.686l1.6 2.895h-1.295l-0.381-0.61h-2.438l-0.381 0.61h-1.295l1.6-2.895c0.381-0.61 0.533-0.686 1.295-0.686z"></path>
+      <path d="M18.895 27.657h1.219v1.295h2.21v-1.295h1.219v3.657h-1.219v-1.448h-2.21v1.448h-1.219v-3.657z"></path>
+      <path d="M30.476 28.571v-0.914h4.724v0.914h-1.752v2.667h-1.219v-2.667h-1.752z"></path>
+      <path d="M11.2 27.657v3.657c-0.381 0-0.838 0-1.219 0 0-0.914 0-1.752 0-2.667h-1.524c-0.152 0-0.229 0.076-0.229 0.229l-0.152 1.676c-0.076 0.533-0.533 0.838-0.99 0.838-0.305 0-0.533 0-0.762-0.076 0-0.305 0-0.533 0-0.838h0.305c0.152 0 0.305-0.076 0.305-0.229l0.076-2.057c0-0.381 0.229-0.533 0.61-0.533h3.581z"></path>
+      <path d="M24.914 30.629c0-0.762 0-1.524 0-2.362 0-0.533 0.229-0.686 0.686-0.686 1.219 0 2.21 0 3.429 0 0 0.305 0 0.61 0 0.914-0.99 0-1.905 0-2.895 0 0 0.152 0 0.305 0 0.533 0.99 0 1.829 0 2.743 0 0 0.305 0 0.61 0 0.838-0.99 0-1.829 0-2.743 0 0 0.152 0 0.305 0 0.533 0.99 0 1.905 0 2.895 0 0 0.305 0 0.61 0 0.914-1.219 0-2.286 0-3.429 0-0.457 0-0.686-0.229-0.686-0.686z"></path>
+    </symbol>
+  </defs>
+</svg>
+
+
+<div class="viewport js-viewport"></div>
+<div class="overlay js-overlay"></div>
+
+</body>
+
+</html>

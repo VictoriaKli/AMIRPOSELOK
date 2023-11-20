@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Бобров ручей</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="./img/Favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./img/Favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./img/Favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./img/Favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./img/Favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./img/Favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./img/Favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./img/Favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/Favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="./img/Favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/Favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./img/Favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/Favicon/favicon-16x16.png">
+    <link rel="manifest" href="./img/Favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link rel="preload" href="./fonts/inter/Inter-ExtraBold.eot" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-ExtraBold.eot?#iefix" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-ExtraBold.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-ExtraBold.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-ExtraBold.ttf" as="font" crossorigin="anonymous">
+
+    <link rel="preload" href="./fonts/inter/Inter-Regular.eot" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-Regular.eot?#iefix" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-Regular.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-Regular.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-Regular.ttf" as="font" crossorigin="anonymous">
+
+
+    <link rel="preload" href="./fonts/inter/Inter-Bold.eot" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-Bold.eot?#iefix" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-Bold.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-Bold.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-Bold.ttf" as="font" crossorigin="anonymous">
+
+    <link rel="preload" href="./fonts/inter/Inter-LightBETA.eot" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-LightBETA.eot?#iefix" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-LightBETA.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-LightBETA.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-LightBETA.ttf" as="font" crossorigin="anonymous">
+
+    <link rel="preload" href="./fonts/inter/Inter-SemiBold.eot" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-SemiBold.eot?#iefix" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-SemiBold.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-SemiBold.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/inter/Inter-SemiBold.ttf" as="font" crossorigin="anonymous">
+
+    <link rel="preload" href="./fonts/Yeseva/Inter-SemiBold.eot" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/Yeseva/Inter-SemiBold.eot?#iefix" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/Yeseva/Inter-SemiBold.woff" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/Yeseva/Inter-SemiBold.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/Yeseva/Inter-SemiBold.ttf" as="font" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="./css/libs.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="text/javascript" src="./js/libs/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="./js/libs/jquery.transit.js"></script>
+    <script
+      type="text/javascript"
+      src="./js/libs/intersection-observer.js"
+    ></script>
+    <script type="text/javascript" src="./js/libs/util.js"></script>
+    <script type="text/javascript" src="./js/libs/device.min.js"></script>
+    <script type="text/javascript" src="./js/libs/cleave.min.js"></script>
+    <script type="text/javascript" src="./js/libs/modal.js"></script>
+    <script type="text/javascript" src="./js/libs/jquery.fancybox.js"></script>
+    <script
+      type="text/javascript"
+      src="./js/libs/jquery.mCustomScrollbar.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./js/libs/jquery.nice-select.min.js"
+    ></script>
+    <script type="text/javascript" src="./js/libs/nouislider.min.js"></script>
+    <script type="text/javascript" src="./js/libs/slick.min.js"></script>
+    <script
+      type="text/javascript"
+      src="./js/libs/jquery.bootstrap-touchspin.min.js"
+    ></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+  </head>
+
+
+
+  <body>
+
+
+    <header class="header js-header">
+      <div class="header__main">
+        <div class="container">
+          <div class="header__main-wp">
+            <div class="header__burger js-burger-mob">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <a href="#" class="header__main-logo">
+              <img src="./img/svg/logo.svg" alt="" title="" class="header__main-logo-img">
+              <img src="./img/svg/logo-white.svg" alt="" title="" class="header__main-logo-img header__main-logo-img--black">
+            </a>
+            <div class="header__main-nav">
+              <nav class="header__main-nav-top">
+                <ul class="header__menu-top">
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Застройщик</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Архитектура</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Галерея</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Ход строительства</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Новости</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Акции</a>
+                  </li>
+                </ul>
+              </nav>
+              <nav class="header__main-nav-bottom">
+                <ul class="header__menu-bottom">
+                  <li class="header__menu-bottom-item">
+                    <a href="#" class="header__menu-bottom-item-link">О посёлке</a>
+                  </li>
+                  <li class="header__menu-bottom-item">
+                    <a href="#" class="header__menu-bottom-item-link">Каталог коттеджей</a>
+                  </li>
+                  <li class="header__menu-bottom-item">
+                    <a href="#" class="header__menu-bottom-item-link">Генплан</a>
+                  </li>
+                  <li class="header__menu-bottom-item">
+                    <a href="#" class="header__menu-bottom-item-link">Расположение</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="header__main-actions">
+              <a href="tel:+7 903 789 25 60" class="social-link social-link--phone">
+               <span class="social-link-icon">
+                  <svg class="icon icon-phone"><use xlink:href="#icon-phone"></use></svg>
+               </span>
+               <span class="social-link__text">
+                +7 903 789 25 60
+               </span>
+              </a>
+              <span class="social-info">
+                Московская область,
+              Наро-фоминский район, ДП «Бобров-Ручей»
+              </span>
+              <a href="#" class="social-link">
+                <span class="social-link-icon">
+                  <svg class="icon icon-vk"><use xlink:href="#icon-vk"></use></svg>
+                </span>
+              </a>
+              <a href="#" class="social-link">
+                <span class="social-link-icon">
+                  <svg class="icon icon-yt"><use xlink:href="#icon-yt"></use></svg>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header__fixed">
+        <div class="container">
+          <div class="header__fixed-wp">
+            <div class="header__burger js-burger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <a href="#" class="header__fixed-logo">
+              <img src="./img/svg/logo-black.svg" alt="" title="">
+            </a>
+            <nav class="header__main-nav-bottom">
+              <ul class="header__menu-bottom">
+                <li class="header__menu-bottom-item">
+                  <a href="#" class="header__menu-bottom-item-link">О посёлке</a>
+                </li>
+                <li class="header__menu-bottom-item">
+                  <a href="#" class="header__menu-bottom-item-link">Каталог коттеджей</a>
+                </li>
+                <li class="header__menu-bottom-item">
+                  <a href="#" class="header__menu-bottom-item-link">Генплан</a>
+                </li>
+                <li class="header__menu-bottom-item">
+                  <a href="#" class="header__menu-bottom-item-link">Расположение</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="header__main-actions">
+              <a href="tel:+7 903 789 25 60" class="social-link social-link--phone">
+               <span class="social-link-icon">
+                  <svg class="icon icon-phone"><use xlink:href="#icon-phone"></use></svg>
+               </span>
+               <span class="social-info">
+                Московская область,
+              Наро-фоминский район, ДП «Бобров-Ручей»
+              </span>
+               <span class="social-link__text">
+                +7 903 789 25 60
+               </span>
+              </a>
+              <a href="#" class="social-link">
+                <span class="social-link-icon">
+                  <svg class="icon icon-vk"><use xlink:href="#icon-vk"></use></svg>
+                </span>
+              </a>
+              <a href="#" class="social-link">
+                <span class="social-link-icon">
+                  <svg class="icon icon-yt"><use xlink:href="#icon-yt"></use></svg>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="header__catalog js-header-catalog-new">
+            <div class="container">
+              <nav class="header__main-nav-top">
+                <ul class="header__menu-top">
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Застройщик</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Архитектура</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Галерея</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Ход строительства</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Новости</a>
+                  </li>
+                  <li class="header__menu-top-item">
+                    <a href="#" class="header__menu-top-item-link">Акции</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header__mobile js-header-mobile">
+        <div class="container">
+          <div class="header__main-actions">
+            <a href="tel:+7 903 789 25 60" class="social-link social-link--phone">
+             <span class="social-link-icon">
+                <svg class="icon icon-phone"><use xlink:href="#icon-phone"></use></svg>
+             </span>
+             <span class="social-link__text">
+              +7 903 789 25 60
+             </span>
+            </a>
+            <span class="social-info">
+              Московская область,
+            Наро-фоминский район, ДП «Бобров-Ручей»
+            </span>
+            <a href="#" class="social-link">
+              <span class="social-link-icon">
+                <svg class="icon icon-vk"><use xlink:href="#icon-vk"></use></svg>
+              </span>
+            </a>
+            <a href="#" class="social-link">
+              <span class="social-link-icon">
+                <svg class="icon icon-yt"><use xlink:href="#icon-yt"></use></svg>
+              </span>
+            </a>
+          </div>
+          <nav class="header__main-nav-bottom">
+            <ul class="header__menu-bottom">
+              <li class="header__menu-bottom-item">
+                <a href="#" class="header__menu-bottom-item-link">О посёлке</a>
+              </li>
+              <li class="header__menu-bottom-item">
+                <a href="#" class="header__menu-bottom-item-link">Расположение</a>
+              </li>
+              <li class="header__menu-bottom-item">
+                <a href="#" class="header__menu-bottom-item-link">Генплан</a>
+              </li>
+              <li class="header__menu-bottom-item">
+                <a href="#" class="header__menu-bottom-item-link">Каталог коттеджей</a>
+              </li>
+            </ul>
+          </nav>
+          <nav class="header__main-nav-top">
+            <ul class="header__menu-top">
+              <li class="header__menu-top-item">
+                <a href="#" class="header__menu-top-item-link">Застройщик</a>
+              </li>
+              <li class="header__menu-top-item">
+                <a href="#" class="header__menu-top-item-link">Архитектура</a>
+              </li>
+              <li class="header__menu-top-item">
+                <a href="#" class="header__menu-top-item-link">Галерея</a>
+              </li>
+              <li class="header__menu-top-item">
+                <a href="#" class="header__menu-top-item-link">Ход строительства</a>
+              </li>
+              <li class="header__menu-top-item">
+                <a href="#" class="header__menu-top-item-link">Новости</a>
+              </li>
+              <li class="header__menu-top-item">
+                <a href="#" class="header__menu-top-item-link">Акции</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div class="wrapper">
+      <script>
+        if (window.location.pathname.replace('/','') === "home.html") {
+          $('body').addClass('main-page');
+        }
+      </script>
