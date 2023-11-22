@@ -79,6 +79,7 @@ function jsLibs() {
         "src/js/libs/jquery.transit.js",
         "src/js/libs/intersection-observer.js",
         "src/js/libs/nouislider.min.js",
+        "src/js/libs/swiper.js",
         "src/js/libs/jquery.nice-select.min.js",
       ])
       .pipe(concat("libs.js"))

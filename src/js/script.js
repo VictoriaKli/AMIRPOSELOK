@@ -105,51 +105,109 @@ $(document).ready(function () {
 
   /* Слайдеры
   ==========================================================================*/
+  const swiper = new Swiper('.js-homescreen-slider', {
+    // grabCursor: true,
+      effect: "creative",
+      autoplay: {
+        delay: 5000,
+      },
+      loop: true,
+      creativeEffect: {
+        prev: {
+          shadow: true,
+          translate: ["-10%", 0, -1],
+        },
+        next: {
+          translate: ["100%", 0, 0],
+        },
+      },
+      breakpoints: {
+        // when window width is >= 320px
+        320: {
+            autoplay: {
+              delay: 3000,
+            },
+        },
+      },
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
 
-  $('.js-homescreen-slider').slick({
-    slidesToShow: 1,
-    arrows: true,
-    dots: false,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    speed: 500,
-    pauseOnHover: false,
-    pauseOnFocus: false,
-    appendArrows: $(".js-slider-arrows"),
-    prevArrow: '<button aria-label="Предыдущий слайд" class="slider-arrow slider-prev"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#slider-arrow"></use></svg></button>',
-    nextArrow: '<button aria-label="Следующий слайд" class="slider-arrow slider-next"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#slider-arrow"></use></svg></button>',
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: false,
-          dots: true
-        }
-      }
-    ]
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    // And if we need scrollbar
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
   });
 
-  slickControlSlides('.js-homescreen-slider');
-
-  /* Главная страница
+  /* Главная страница анимации
   ==========================================================================*/
-
-  function mpPayment() {
-    $('.js-payment-more').click(function(e) {
-      e.preventDefault();
-
-      let parent = $(this).parents('.js-payment-item');
-      if (!parent.hasClass('is-open')) {
-        parent.addClass('is-open');
-      } else {
-        parent.removeClass('is-open');
-      }
-    });
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: .5
   }
 
-  mpPayment();
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      const item = entry.target
+      if (entry.isIntersecting) {
+        if (item.classList.contains('js-animation1')) {
+          $('.js-animation1').addClass('is-animation');
+        } else {
+
+        }
+      }
+      // else {
+      //   if ($('.js-animation1')) {
+      //     $('.js-animation1').removeClass('is-animation');
+      //   }
+      // }
+    })
+  }, options);
+
+  //
+  const pageMap = document.querySelectorAll('.js-animation1');
+  pageMap.forEach(i => {
+    observer.observe(i)
+  });
+
+  const options2 = {
+    root: null,
+    rootMargin: '0px',
+    threshold: .5
+  }
+
+  const observerHome = new IntersectionObserver((entries, observerHome) => {
+    entries.forEach(entry => {
+      const item = entry.target
+      if (entry.isIntersecting) {
+        if (item.classList.contains('js-homescreen')) {
+          $('.js-header').removeClass('is-color');
+        } else {
+
+        }
+      }
+      else {
+        if ($('.js-header')) {
+          $('.js-header').addClass('is-color');
+        }
+      }
+    })
+  }, options2);
+
+  //
+  const homescreen = document.querySelectorAll('.js-homescreen');
+  homescreen.forEach(i => {
+    observerHome.observe(i)
+  });
 
   /* Общее
   ==========================================================================*/
