@@ -102,7 +102,7 @@ $(document).ready(function () {
     // grabCursor: true,
     effect: "creative",
     autoplay: {
-      delay: 5000
+      delay: 3000
     },
     loop: true,
     creativeEffect: {
@@ -125,16 +125,34 @@ $(document).ready(function () {
     // If we need pagination
     pagination: {
       el: '.swiper-pagination',
-      clickable: true
+      clickable: true,
+      bulletClass: 'swiper-pagination-bullet-custom',
+      bulletActiveClass: 'swiper-pagination-bullet-custom--active',
+      renderBullet: function renderBullet(index, className) {
+        return "<div class=\"".concat(className, "\" data-index=\"").concat(index, "\">\n          <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"37\" height=\"1\" viewBox=\"0 0 37 1\" fill=\"none\">\n            <rect x=\"1.30469\" width=\"36\" height=\"1\" fill=\"#FF0000\" fill-opacity=\"1\"/>\n          </svg>\n        </div>");
+      }
     },
     // Navigation arrows
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
     },
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar'
+    on: {
+      init: function init() {
+        var _self = this;
+
+        _self.el.style.setProperty('--delay', _self.params.autoplay.delay);
+
+        _self.el.addEventListener('mouseenter', function () {
+          // _self.el.classList.add('swiper--pause');
+          _self.autoplay.stop();
+        });
+
+        _self.el.addEventListener('mouseleave', function () {
+          // _self.el.classList.remove('swiper--pause');
+          _self.autoplay.start();
+        });
+      }
     }
   });
   /* Главная страница анимации
@@ -190,6 +208,32 @@ $(document).ready(function () {
   var homescreen = document.querySelectorAll('.js-homescreen');
   homescreen.forEach(function (i) {
     observerHome.observe(i);
+  });
+  var options3 = {
+    root: null,
+    rootMargin: '0px',
+    threshold: .7
+  };
+  var observerImg = new IntersectionObserver(function (entries, observerImg) {
+    entries.forEach(function (entry) {
+      var item = entry.target;
+
+      if (entry.isIntersecting) {
+        if (item.classList.contains('js-animation2')) {
+          $('.js-animation2').addClass('is-animation');
+        } else {}
+      } // else {
+      //   if ($('.js-animation2')) {
+      //     $('.js-animation2').removeClass('is-animation');
+      //   }
+      // }
+
+    });
+  }, options3); //
+
+  var imgBlock = document.querySelectorAll('.js-animation2');
+  imgBlock.forEach(function (i) {
+    observerImg.observe(i);
   });
   /* Общее
   ==========================================================================*/

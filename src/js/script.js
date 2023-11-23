@@ -109,7 +109,7 @@ $(document).ready(function () {
     // grabCursor: true,
       effect: "creative",
       autoplay: {
-        delay: 5000,
+        delay: 3000,
       },
       loop: true,
       creativeEffect: {
@@ -133,6 +133,15 @@ $(document).ready(function () {
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
+      bulletClass: 'swiper-pagination-bullet-custom',
+      bulletActiveClass: 'swiper-pagination-bullet-custom--active',
+      renderBullet: function(index, className) {
+        return `<div class="${className}" data-index="${index}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="1" viewBox="0 0 37 1" fill="none">
+            <rect x="1.30469" width="36" height="1" fill="#FF0000" fill-opacity="1"/>
+          </svg>
+        </div>`
+      },
     },
 
     // Navigation arrows
@@ -141,11 +150,26 @@ $(document).ready(function () {
       prevEl: '.swiper-button-prev',
     },
 
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
+    on: {
+      init: function() {
+        const _self = this;
+
+        _self.el.style.setProperty('--delay', _self.params.autoplay.delay);
+
+        _self.el.addEventListener('mouseenter', function() {
+          // _self.el.classList.add('swiper--pause');
+          _self.autoplay.stop();
+        });
+
+        _self.el.addEventListener('mouseleave', function() {
+          // _self.el.classList.remove('swiper--pause');
+          _self.autoplay.start();
+        });
+      }
+    }
   });
+
+
 
   /* Главная страница анимации
   ==========================================================================*/
@@ -207,6 +231,38 @@ $(document).ready(function () {
   const homescreen = document.querySelectorAll('.js-homescreen');
   homescreen.forEach(i => {
     observerHome.observe(i)
+  });
+
+
+
+  const options3 = {
+    root: null,
+    rootMargin: '0px',
+    threshold: .7
+  }
+
+  const observerImg = new IntersectionObserver((entries, observerImg) => {
+    entries.forEach(entry => {
+      const item = entry.target
+      if (entry.isIntersecting) {
+        if (item.classList.contains('js-animation2')) {
+          $('.js-animation2').addClass('is-animation');
+        } else {
+
+        }
+      }
+      // else {
+      //   if ($('.js-animation2')) {
+      //     $('.js-animation2').removeClass('is-animation');
+      //   }
+      // }
+    })
+  }, options3);
+
+  //
+  const imgBlock = document.querySelectorAll('.js-animation2');
+  imgBlock.forEach(i => {
+    observerImg.observe(i)
   });
 
   /* Общее
