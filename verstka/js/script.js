@@ -10,8 +10,6 @@ $(document).ready(function () {
   var search = $('.js-search-fixed'),
       searchDrop = $('.js-search-dropdown'),
       header = $('.js-header'),
-      headerCatalogDropdown = $('.js-header-catalog'),
-      headerBigCatalogDropdown = $('.js-header-catalog-big'),
       cartLink = $(".js-cart-link"),
       dropdownCartContainer = $(".js-fixed-cart"),
       cartItems = $(".js-fixed-cart-item"),
@@ -365,60 +363,69 @@ $(document).ready(function () {
         });
       }
     }
-  }
+  } // Слайдеры
 
-  function parallax() {
-    $('.js-parallax').each(function () {
-      /* внутри каждого блока с классом .parallax__image */
-      var img = $(this).find('img');
-      /* находим изображение по тегу img */
 
-      var windowTop = $(window).scrollTop();
-      /* вычисляем сколько уже прокручего от верха страницы */
-
-      var windowHeight = $(window).height();
-      /* вычисляем высоту окна браузера */
-
-      var windowBottom = $(window).scrollTop() + windowHeight;
-      /* вычисляем где низ окна браузера */
-
-      var imageTop = $(this).offset().top;
-      /* вычисляем расстояние от верха страницы до верха блока с изображением  */
-
-      var imageHeight = $(this).height();
-      /* вычисляем высоту блока с изображением */
-
-      var imageBottom = $(this).offset().top + imageHeight;
-      /* вычисляем низ блока с изображением */
-
-      if (!(imageTop > windowBottom || imageBottom < windowTop)) {
-        /* проверяем находится ли блок с изображением в видимой области окна браузера */
-        var sub = imageTop - windowTop;
-        /* вычисляем разницу верха блока с изображением и верха окна браузера */
-
-        if (sub >= 0) {
-          img.css({
-            objectPosition: "".concat(-(sub / 7) + 1, "px")
-          });
-          img.css({
-            transform: "scaleX(1) translateY(0)"
-          });
-        } else {
-          img.css({
-            transform: "scaleX(1) translateY(".concat(-sub / 2, "px)")
-          });
-        }
+  $(".js-project-slider").on("init", function (event, slick) {
+    $(".js-project-slider").css("opacity", "1");
+  });
+  $(".js-project-slider").slick({
+    dots: false,
+    arrows: true,
+    appendArrows: $(".js-project-arrows section__nav"),
+    prevArrow: '<button aria-label="Предыдущий слайд" class="slider-arrow slider-prev js-project-prev"><svg class="icon icon-bread-back"><use xlink:href="#icon-bread-back"></use></svg></button>',
+    nextArrow: '<button aria-label="Следующий слайд" class="slider-arrow slider-next js-project-next"><svg class="icon icon-bread-back"><use xlink:href="#icon-bread-back"></use></svg></button>',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    // autoplaySpeed: 6000,
+    speed: 300,
+    swipe: true,
+    pauseOnHover: false,
+    pauseOnFocus: false,
+    asNavFor: ".js-project-slider-nav",
+    responsive: [{
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: false
       }
-    });
-  }
-
-  parallax();
-  $(window).scroll(function () {
-    parallax();
+    }]
+  }).on('setPosition', function () {
+    $(this).find('.slick-slide').height('auto');
+    var slickTrack = $(this).find('.slick-track');
+    var slickTrackHeight = $(slickTrack).height();
+    $(this).find('.slick-slide').css('height', slickTrackHeight + 'px');
   });
-  $(window).resize(function () {
-    parallax();
+  slickControlSlides(".js-project-slider");
+  $(".js-project-slider-nav").on("init", function (event, slick) {
+    $(".js-project-slider-nav").css("opacity", "1");
   });
+  $(".js-project-slider-nav").slick({
+    dots: false,
+    arrows: false,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    variableWidth: true,
+    speed: 300,
+    focusOnSelect: true,
+    asNavFor: ".js-project-slider",
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        centerMode: true
+      }
+    }]
+  }).on('setPosition', function () {
+    $(this).find('.slick-slide').height('auto');
+    var slickTrack = $(this).find('.slick-track');
+    var slickTrackHeight = $(slickTrack).height();
+    $(this).find('.slick-slide').css('height', slickTrackHeight + 'px');
+  });
+  slickControlSlides(".js-project-slider-nav");
   /* Инпуты в стиле материал
   ==========================================================================*/
 
