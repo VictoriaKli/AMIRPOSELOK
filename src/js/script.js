@@ -142,7 +142,7 @@ $(document).ready(function () {
       },
     },
 
-    // Navigation arrows
+    // // Navigation arrows
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
@@ -296,26 +296,26 @@ $(document).ready(function () {
         let nav = $(slickSelector).parent().find(".section__nav");
 
         // Устанавливаем disabled по умолчанию для кнопки prev
-        nav.find(".btn_prev").addClass("disabled");
+        nav.find(".slider-prev").addClass("disabled");
 
         $(slickSelector).on(
           "afterChange",
           function (event, slick, currentSlide, nextSlide) {
             // Снимаем класс для всех кнопок
             if (currentSlide >= 1) {
-              nav.find(".slick-btn").removeClass("disabled");
+              nav.find(".slick-arrow").removeClass("disabled");
             }
             // Устанавливаем класс для кнопки prev
             if (currentSlide == 0) {
-              nav.find(".btn_prev").addClass("disabled");
+              nav.find(".slider-prev").addClass("disabled");
             } else {
-              nav.find(".btn_prev").removeClass("disabled");
+              nav.find(".slider-prev").removeClass("disabled");
             }
             // Устанавливаем класс для кнопки next
             if (currentSlide == slickSlides.length - 1) {
-              nav.find(".btn_next").addClass("disabled");
+              nav.find(".slider-next").addClass("disabled");
             } else {
-              nav.find(".btn_next").removeClass("disabled");
+              nav.find(".slider-next").removeClass("disabled");
             }
           }
         );
@@ -326,11 +326,11 @@ $(document).ready(function () {
         : sliderSelector.removeClass("slick-no-transform");
       // Проверяем количество слайдов и отключаем стрелки
       if (paramSlides >= slickSlides.length) {
-        $(slickSelector).parent().find(".banner-mp__nav").css('display', 'none');
+        $(slickSelector).parent().find(".section__nav").css('display', 'none');
       } else if (paramSlides === 1) {
-        $(slickSelector).parent().find(".banner-mp__nav").css('display', 'none');
+        $(slickSelector).parent().find(".section__nav").css('display', 'none');
       }else {
-        $(slickSelector).parent().find(".banner-mp__nav").css('display', 'flex');
+        $(slickSelector).parent().find(".section__nav").css('display', 'flex');
       }
       // Убираем точки
       if (slickSlides.length == 1) {
@@ -408,9 +408,6 @@ $(document).ready(function () {
   $(".js-project-slider").slick({
     dots: false,
     arrows: true,
-    appendArrows: $(".js-project-arrows section__nav"),
-    prevArrow: '<button aria-label="Предыдущий слайд" class="slider-arrow slider-prev js-project-prev"><svg class="icon icon-bread-back"><use xlink:href="#icon-bread-back"></use></svg></button>',
-    nextArrow: '<button aria-label="Следующий слайд" class="slider-arrow slider-next js-project-next"><svg class="icon icon-bread-back"><use xlink:href="#icon-bread-back"></use></svg></button>',
     slidesToShow: 1,
     slidesToScroll: 1,
     // autoplaySpeed: 6000,
@@ -418,15 +415,18 @@ $(document).ready(function () {
 	  swipe: true,
 	  pauseOnHover: false,
 	  pauseOnFocus: false,
+    appendArrows: $(".js-project-arrows"),
+    prevArrow: '<button aria-label="Предыдущий слайд" class="slider-arrow slider-prev js-project-prev"><svg class="icon icon-arrow-prev"><use xlink:href="#icon-arrow-prev"></use></svg></button>',
+    nextArrow: '<button aria-label="Следующий слайд" class="slider-arrow slider-next js-project-next"><svg class="icon icon-arrow-next"><use xlink:href="#icon-arrow-next"></use></svg></button>',
     asNavFor: ".js-project-slider-nav",
     responsive: [
       {
-        breakpoint: 767,
+        breakpoint: 992,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
           arrows: false,
-          dots: false,
+          dots: true,
         },
       },
     ],
@@ -443,15 +443,16 @@ $(document).ready(function () {
     $(".js-project-slider-nav").css("opacity", "1");
   });
 
+
+
   $(".js-project-slider-nav").slick({
     dots: false,
     arrows: false,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
-    variableWidth: true,
     speed: 300,
-    focusOnSelect: true,
     asNavFor: ".js-project-slider",
+    focusOnSelect: true,
     responsive: [
 
       {
@@ -459,19 +460,201 @@ $(document).ready(function () {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          centerMode: true,
         },
       },
     ],
-  }).on('setPosition', function () {
-    $(this).find('.slick-slide').height('auto');
-    var slickTrack = $(this).find('.slick-track');
-    var slickTrackHeight = $(slickTrack).height();
-    $(this).find('.slick-slide').css('height', slickTrackHeight + 'px');
   });
 
 
   slickControlSlides(".js-project-slider-nav");
+
+
+  $(".js-product-detail").on("init", function (event, slick) {
+    $(".js-product-detail").css("opacity", "1");
+  });
+
+  $(".js-product-detail").slick({
+    dots: false,
+    arrows: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    // autoplaySpeed: 6000,
+	  speed: 300,
+	  swipe: true,
+	  pauseOnHover: false,
+	  pauseOnFocus: false,
+    appendArrows: $(".js-project-detail-arrows"),
+    prevArrow: '<button aria-label="Предыдущий слайд" class="slider-arrow slider-prev js-project-prev"><svg class="icon icon-arrow-prev"><use xlink:href="#icon-arrow-prev"></use></svg></button>',
+    nextArrow: '<button aria-label="Следующий слайд" class="slider-arrow slider-next js-project-next"><svg class="icon icon-arrow-next"><use xlink:href="#icon-arrow-next"></use></svg></button>',
+    asNavFor: ".js-product-detail-nav",
+    responsive: [
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          dots: true,
+        },
+      },
+    ],
+  });
+
+  slickControlSlides(".js-product-detail");
+
+  $(".js-product-detail-nav").on("init", function (event, slick) {
+    $(".js-product-detail-nav").css("opacity", "1");
+  });
+
+
+
+  $(".js-product-detail-nav").slick({
+    dots: false,
+    arrows: false,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    speed: 300,
+    asNavFor: ".js-product-detail",
+    focusOnSelect: true,
+    responsive: [
+
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  });
+
+
+  slickControlSlides(".js-product-detail-nav");
+
+  var slick_view = document.querySelectorAll(".js-project-plan-slider");
+  var slick_nav = document.querySelectorAll(".js-plan-block .js-project-plan-slider-nav");
+  var slick_btn = document.querySelectorAll(".js-plan-block .js-project-plan-slider-nav button");
+  // var firstNum = document.querySelectorAll('.slider-nav__item');
+
+  for (var s = 0; s < slick_view.length; s++){
+    $(slick_view[s]).on('init', function(event, slick, currentSlide, nextSlide){
+      var slideCount = $(slick_view[s]).find(".slick-slide:not(.slick-cloned)").length;
+
+    $(slick_nav[s]).each(function(){
+      for (var i=0; i<slideCount; i++){
+          var num = (i<9) ? +(i+1) : (i+1);
+          if(i === 0){
+            $(this).append('<button class="slider-nav__item is-active">'+num+'</button>');
+          } else{
+            $(this).append('<button class="slider-nav__item">'+num+'</button>');
+          }
+
+      }
+      // let firstNum = document.querySelectorAll('.slider-nav__item').classList.add('is-active');
+
+    });
+
+    //
+
+    $(".js-plan-block .js-project-plan-slider-nav button").on('click', function(){
+
+      var index = $(this).index();
+
+      if(!$(this).hasClass('is-active')){
+        $(this).parents('.js-project-plan-slider-nav').find('.slider-nav__item').removeClass('is-active');
+        $(this).addClass('is-active');
+      }
+      $(slick_view[s]).slick('slickGoTo', index);
+    });
+
+    });
+  }
+
+
+
+  $(".js-project-plan-slider").on("init", function (event, slick) {
+    $(".js-project-plan-slider").css("opacity", "1");
+  });
+
+
+  for (var s = 0; s < slick_view.length; s++){
+    $(slick_view[s]).slick({
+      dots: false,
+      arrows: false,
+      swipe: false,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      speed: 300,
+      focusOnSelect: true,
+    });
+  }
+
+
+
+  slickControlSlides(".js-project-plan-slider");
+
+
+  //detail-plan
+
+  $(".js-detail-plan").on('init', function(event, slick, currentSlide, nextSlide){
+    var slideCountPlan = $(".js-detail-plan").find(".slick-slide:not(.slick-cloned)").length;
+
+  $('.js-detail-plan-wp .js-detail-plan-slider-nav').each(function(){
+    for (var i=0; i<slideCountPlan; i++){
+        var num = (i<9) ? (i+1) : (i+1);
+        $(this).append('<button class="slider-nav__item">'+num+'</button>');
+    }
+  });
+
+  let firstNumPlan = document.querySelector('.slider-nav__item').classList.add('is-active');
+
+  $('.js-detail-plan-wp .js-detail-plan-slider-nav button').on('click', function(){
+    var indexPlan = $(this).index();
+
+    if(!$(this).hasClass('is-active')){
+      $(this).parents('.js-detail-plan-slider-nav').find('.slider-nav__item').removeClass('is-active');
+      $(this).addClass('is-active');
+    }
+    $('.js-detail-plan').slick('slickGoTo', indexPlan);
+  });
+
+  });
+
+  $(".js-detail-plan").on("init", function (event, slick) {
+    $(".js-detail-plan").css("opacity", "1");
+  });
+
+  $('.js-detail-plan').slick({
+    dots: false,
+    arrows: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    speed: 900,
+    cssEase: 'fade',
+    focusOnSelect: true,
+  });
+
+  slickControlSlides(".js-detail-plan");
+
+
+//
+
+
+
+  $('.js-slider-change').click(function(e) {
+    e.preventDefault();
+
+    if($('.js-catalog-photo').hasClass('is-active')){
+      $('.js-catalog-photo').removeClass('is-active');
+      $('.js-plan-block').addClass('is-active');
+    } else{
+      if($('.js-plan-block').hasClass('is-active')){
+        $('.js-catalog-photo').addClass('is-active');
+        $('.js-plan-block').removeClass('is-active');
+      }
+    }
+
+  });
 
 
   /* Инпуты в стиле материал
