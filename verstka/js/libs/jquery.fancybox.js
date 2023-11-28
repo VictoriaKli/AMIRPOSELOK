@@ -73,10 +73,10 @@
     buttons: [
       "zoom",
       //"share",
-      "slideShow",
+      //"slideShow",
       //"fullScreen",
       //"download",
-      "thumbs",
+      //"thumbs",
       "close"
     ],
 

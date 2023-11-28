@@ -401,72 +401,80 @@ $(document).ready(function () {
 
   // Слайдеры
 
+
   $(".js-project-slider").on("init", function (event, slick) {
     $(".js-project-slider").css("opacity", "1");
   });
 
-  $(".js-project-slider").slick({
-    dots: false,
-    arrows: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    // autoplaySpeed: 6000,
-	  speed: 300,
-	  swipe: true,
-	  pauseOnHover: false,
-	  pauseOnFocus: false,
-    appendArrows: $(".js-project-arrows"),
-    prevArrow: '<button aria-label="Предыдущий слайд" class="slider-arrow slider-prev js-project-prev"><svg class="icon icon-arrow-prev"><use xlink:href="#icon-arrow-prev"></use></svg></button>',
-    nextArrow: '<button aria-label="Следующий слайд" class="slider-arrow slider-next js-project-next"><svg class="icon icon-arrow-next"><use xlink:href="#icon-arrow-next"></use></svg></button>',
-    asNavFor: ".js-project-slider-nav",
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: false,
-          dots: true,
-        },
-      },
-    ],
-  }).on('setPosition', function () {
-    $(this).find('.slick-slide').height('auto');
-    var slickTrack = $(this).find('.slick-track');
-    var slickTrackHeight = $(slickTrack).height();
-    $(this).find('.slick-slide').css('height', slickTrackHeight + 'px');
-  });
-
-  slickControlSlides(".js-project-slider");
 
   $(".js-project-slider-nav").on("init", function (event, slick) {
     $(".js-project-slider-nav").css("opacity", "1");
   });
-
-
-
-  $(".js-project-slider-nav").slick({
-    dots: false,
-    arrows: false,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    speed: 300,
-    asNavFor: ".js-project-slider",
-    focusOnSelect: true,
-    responsive: [
-
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  });
-
-
+  slickControlSlides(".js-project-slider");
   slickControlSlides(".js-project-slider-nav");
+
+  var slick_viewProj = document.querySelectorAll(".js-project-slider");
+  var slick_navProj = document.querySelectorAll(".js-project-slider-nav");
+  var slick_navProjCont = document.querySelectorAll(".js-project-arrows");
+
+  for (var i = 0; i < slick_viewProj.length; i++){
+    $(slick_viewProj[i]).slick({
+      dots: false,
+      arrows: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      // autoplaySpeed: 6000,
+      speed: 300,
+      swipe: true,
+      pauseOnHover: false,
+      pauseOnFocus: false,
+      appendArrows: slick_navProjCont[i],
+      prevArrow: '<button aria-label="Предыдущий слайд" class="slider-arrow slider-prev js-project-prev"><svg class="icon icon-arrow-prev"><use xlink:href="#icon-arrow-prev"></use></svg></button>',
+      nextArrow: '<button aria-label="Следующий слайд" class="slider-arrow slider-next js-project-next"><svg class="icon icon-arrow-next"><use xlink:href="#icon-arrow-next"></use></svg></button>',
+      asNavFor: slick_navProj[i],
+      responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            dots: true,
+          },
+        },
+      ],
+    }).on('setPosition', function () {
+      $(this).find('.slick-slide').height('auto');
+      var slickTrack = $(this).find('.slick-track');
+      var slickTrackHeight = $(slickTrack).height();
+      $(this).find('.slick-slide').css('height', slickTrackHeight + 'px');
+    });
+
+    $(slick_navProj[i]).slick({
+      dots: false,
+      arrows: false,
+      slidesToShow: 5,
+      slidesToScroll: 1,
+      speed: 300,
+      asNavFor: ".js-project-slider",
+      focusOnSelect: true,
+      responsive: [
+
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          },
+        },
+      ],
+    });
+  };
+
+
+
+
+
 
 
   $(".js-product-detail").on("init", function (event, slick) {
@@ -656,6 +664,7 @@ $(document).ready(function () {
 
   });
 
+  $('select').niceSelect();
 
   /* Инпуты в стиле материал
   ==========================================================================*/
