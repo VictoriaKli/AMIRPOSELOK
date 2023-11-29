@@ -1213,8 +1213,140 @@
     </div>
   </div>
 </footer>
+<div class="modal fade modal-booking hide" id="booking" tabindex="-1" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h3 class="modal-title">Забронировать</h3>
+              <button aria-label="Закрыть" type="button" class="close" data-dismiss="modal">
+                  <span aria-hidden="true">
+                    <svg class="icon icon-close-thin"><use xlink:href="#icon-close-thin"></use></svg>
+                  </span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-body__desc">
+              <span>Тип дома:</span>
+              Коттедж №11
+            </div>
+            <form action="">
+              <div class="field js-material-input is-required">
+                  <input class="field__input js-phone" name="modal-phone" id="modal-phone" autocomplete="off"
+                  type="text">
+                  <label class="field__label" for="modal-phone">Телефон</label>
+                      <span class="field__error-text">Заполнено не корректно</span>
+              </div>
+              <div class="form__submit">
+                <div class="form__submit-container">
+                      <div class="captcha">
+                          <div class="js-captcha js-lazy-load js-captcha-lazy" data-captcha="Y">
+                              <div class="g-recaptcha" data-sitekey="6LegxDgiAAAAAPAZdjoyBtxO2BP9EwQ56WgMXTE_"></div>
+                          </div>
+                      </div>
+                      <button type="submit" class="btn btn--green">
+                          <div class="btn__text">
+                              Отправить
+                          </div>
+                      </button>
+                  </div>
+                  <div class="checkbox">
+                  <input type="checkbox" name="modal-politic" class="checkbox__input js-politic"
+                      id="modal-politic" checked="">
+                  <label for="modal-politic" class="checkbox__label">Нажимая кнопку «Отправить», я даю свое
+                      <a href="/politika-konfidentsialnosti/" target="_blank">согласие на обработку моих персональных
+                      данных</a>, в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ.</label>
+                  </div>
+              </div>
+            </form>
+          </div>
+      </div>
+  </div>
+</div>
 
+<div class="modal fade modal-ask hide" id="ask" tabindex="-1" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h3 class="modal-title">Задайте вопрос эксперту</h3>
+              <button aria-label="Закрыть" type="button" class="close" data-dismiss="modal">
+                  <span aria-hidden="true">
+                    <svg class="icon icon-close-thin"><use xlink:href="#icon-close-thin"></use></svg>
+                  </span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <div class="field js-material-input is-required">
+                  <input class="field__input js-name" name="modal-name" id="modal-name" autocomplete="off" type="text">
+                  <label class="field__label" for="modal-name">Имя</label>
+                  <span class="field__error-text">Заполнено не корректно</span>
+              </div>
+              <div class="field js-material-input is-error is-required">
+                  <input class="field__input js-phone" name="modal-phone" id="modal-phone" autocomplete="off"
+                  type="text">
+                  <label class="field__label" for="modal-phone">Телефон</label>
+                  <span class="field__error-text">Заполнено не корректно</span>
+              </div>
+              <div class="field js-material-input is-required">
+                  <input class="field__input" name="modal-mail" id="modal-mail" autocomplete="off"
+                  type="text">
+                  <label class="field__label" for="modal-mail">Электронная почта</label>
+                  <span class="field__error-text">Заполнено не корректно</span>
+              </div>
+              <div class="field js-material-input">
+                  <textarea class="field__input field__input--textarea" rows="3" name="" id="coop-text" placeholder="Ваше сообщение" autocomplete="off"></textarea>
+              </div>
+              <div class="form__submit">
+                <div class="form__submit-container">
+                      <div class="captcha">
+                          <div class="js-captcha js-lazy-load js-captcha-lazy" data-captcha="Y">
+                              <div class="g-recaptcha" data-sitekey="6LegxDgiAAAAAPAZdjoyBtxO2BP9EwQ56WgMXTE_"></div>
+                          </div>
+                      </div>
+                      <button type="submit" class="btn btn--green">
+                          <div class="btn__text">
+                              Отправить
+                          </div>
+                      </button>
+                  </div>
+                  <div class="checkbox">
+                  <input type="checkbox" name="modal-politic" class="checkbox__input js-politic"
+                      id="modal-politic" checked="">
+                  <label for="modal-politic" class="checkbox__label">Нажимая кнопку «Отправить», я даю свое
+                      <a href="/politika-konfidentsialnosti/" target="_blank">согласие на обработку моих персональных
+                      данных</a>, в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ.</label>
+                  </div>
+              </div>
+            </form>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="modal fade modal-success hide" id="success"  tabindex="-1" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Ваше сообщение отправлено</h3>
+              <button aria-label="Закрыть" type="button" class="close" data-dismiss="modal">
+                  <span aria-hidden="true">
+                    <svg class="icon icon-close-thin"><use xlink:href="#icon-close-thin"></use></svg>
+                  </span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-body__text">
+              В ближайшее время с Вами свяжется менеджер
+            </div>
+            <a href="#" data-dismiss="modal" aria-label="Close" class="btn">
+              <div class="btn__text">
+                Закрыть
+              </div>
+            </a>
+          </div>
 
+      </div>
+  </div>
+</div>
 
 
 
@@ -1334,6 +1466,29 @@
     <symbol id="icon-loop" viewBox="0 0 32 32">
       <path fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="3.5556" d="M23.545 12.373c0 5.541-4.492 10.033-10.033 10.033s-10.033-4.492-10.033-10.033c0-5.541 4.492-10.033 10.033-10.033s10.033 4.492 10.033 10.033z"></path>
       <path fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="3.5556" d="M30.298 29.159l-9.763-9.763"></path>
+    </symbol>
+    <symbol id="icon-phone-map" viewBox="0 0 32 32">
+      <path d="M20.096 25.472c-0.256 0-0.64-0.128-0.896-0.256-1.408-0.768-4.864-2.816-7.68-6.272s-3.84-6.912-4.096-8.192c-0.128-0.64 0.128-1.408 0.64-1.792l4.224-3.584 3.456 6.272-1.664 1.408c0.256 0.64 0.896 1.664 1.792 2.816s1.792 1.92 2.304 2.304l1.664-1.408 5.632 4.864-4.096 3.456c-0.384 0.256-0.768 0.384-1.28 0.384zM11.776 8.32l-2.432 2.048c0.256 1.152 1.152 4.224 3.712 7.424s5.76 5.12 7.040 5.888l2.432-2.048-2.688-2.432-1.536 1.28-0.512-0.256c-0.128 0-1.664-0.896-3.456-3.072-1.664-1.92-2.304-3.84-2.304-3.968l-0.256-0.768 1.536-1.28-1.536-2.816z"></path>
+    </symbol>
+    <symbol id="icon-mail" viewBox="0 0 32 32">
+      <path d="M24.832 24.32h-17.92l-1.024-1.024v-13.44l1.024-1.024h17.92l1.024 1.024v13.568l-1.024 0.896zM7.936 22.4h16v-11.648h-16v11.648z"></path>
+      <path d="M16.512 18.048h-1.152l-8.96-7.424 1.152-1.536 8.448 6.912 8.32-6.272 1.152 1.536z"></path>
+    </symbol>
+    <symbol id="icon-time" viewBox="0 0 32 32">
+      <path d="M15.872 26.112c-5.504 0-9.984-4.48-9.984-9.984s4.48-9.984 9.984-9.984 9.984 4.48 9.984 9.984-4.48 9.984-9.984 9.984zM15.872 8.192c-4.352 0-8.064 3.584-8.064 8.064s3.584 8.064 8.064 8.064 8.064-3.584 8.064-8.064-3.584-8.064-8.064-8.064z"></path>
+      <path d="M19.712 17.024h-3.84l-0.896-0.896v-5.12h1.92v4.096h2.816z"></path>
+    </symbol>
+    <symbol id="icon-location-map" viewBox="0 0 32 32">
+      <path d="M16.64 27.136h-1.408c-0.768-0.896-7.808-9.344-7.808-13.696 0-4.608 3.84-8.448 8.704-8.448 4.736 0 8.576 3.712 8.576 8.448-0.128 4.352-7.296 12.672-8.064 13.696zM16 6.912c-3.712 0-6.784 2.944-6.784 6.528 0 2.816 4.352 8.576 6.656 11.52 2.432-2.944 6.784-8.832 6.784-11.52 0-3.584-2.944-6.528-6.656-6.528z"></path>
+      <path d="M15.872 17.152c-1.92 0-3.584-1.536-3.584-3.584s1.536-3.584 3.584-3.584 3.584 1.536 3.584 3.584-1.536 3.584-3.584 3.584zM15.872 12.032c-0.896 0-1.664 0.768-1.664 1.664s0.768 1.664 1.664 1.664 1.664-0.768 1.664-1.664-0.768-1.664-1.664-1.664z"></path>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 32 32">
+      <path d="M2.227 5.628l2.662-2.662 24.091 24.091-2.662 2.662-24.091-24.091z"></path>
+      <path d="M2.36 27.056l24.091-24.091 2.662 2.662-24.091 24.091-2.662-2.662z"></path>
+    </symbol>
+    <symbol id="icon-close-thin" viewBox="0 0 31 32">
+      <path d="M2.378 4.097l1.371-1.371 24.821 24.821-1.371 1.371-24.821-24.821z"></path>
+      <path d="M2.447 27.617l24.821-24.821 1.371 1.371-24.821 24.821-1.371-1.371z"></path>
     </symbol>
   </defs>
 </svg>

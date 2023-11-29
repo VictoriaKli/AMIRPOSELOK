@@ -558,7 +558,34 @@ $(document).ready(function () {
     cssEase: 'fade',
     focusOnSelect: true
   });
-  slickControlSlides(".js-detail-plan"); //
+  slickControlSlides(".js-detail-plan");
+  $(".js-news-slider").on("init", function (event, slick) {
+    $(".js-news-slider").css("opacity", "1");
+  });
+  $(".js-news-slider").slick({
+    dots: false,
+    arrows: true,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    // autoplaySpeed: 2000,
+    speed: 300,
+    swipe: true,
+    pauseOnHover: false,
+    pauseOnFocus: false,
+    appendArrows: $(".js-news-slider-nav"),
+    prevArrow: '<button aria-label="Предыдущий слайд" class="slider-arrow slider-prev js-project-prev"><svg class="icon icon-arrow-prev"><use xlink:href="#icon-arrow-prev"></use></svg></button>',
+    nextArrow: '<button aria-label="Следующий слайд" class="slider-arrow slider-next js-project-next"><svg class="icon icon-arrow-next"><use xlink:href="#icon-arrow-next"></use></svg></button>',
+    responsive: [{
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: true
+      }
+    }]
+  });
+  slickControlSlides(".js-news-slider"); //
 
   $('.js-slider-change').click(function (e) {
     e.preventDefault();
