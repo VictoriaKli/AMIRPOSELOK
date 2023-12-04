@@ -329,6 +329,173 @@
         }
       </script>
 
+      <style>
+        .preloader {
+          position: fixed;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+          -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+          background: #FFFFFF;
+          z-index: 999;
+          -webkit-transition: all 0.3s ease-out;
+          -o-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
+        }
+
+        .preloader.is-hide {
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+        }
+
+        .preloader__wp{
+          width: 75px;
+          height: 98px;
+          position: relative;
+          overflow: hidden;
+          background: #FFF;
+        }
+
+        .preloader__wp:after{
+          position: absolute;
+          content: "";
+          top: 0;
+          right: 0;
+          width: 0;
+          height: 0;
+          border-top: 25px solid #FFF;
+          border-left: 50px solid transparent;
+          z-index: 3;
+        }
+
+        .preloader__wp::before{
+          position: absolute;
+          content: "";
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 0;
+          border-bottom: 25px solid #FFF;
+          border-right: 50px solid transparent;
+          z-index: 3;
+        }
+        .preloader__wp img{
+          height: 100%;
+          object-fit: contain;
+        }
+
+        .preloader__lines-top{
+          position: absolute;
+          top: 6px;
+          right: 3px;
+          width: 31px;
+          height: 41px;
+          display: flex;
+          column-gap: 4px;
+          justify-content: flex-end;
+        }
+
+        .preloader__lines-top span{
+          min-width: 3px;
+          width: 3px;
+          height: 100%;
+          position: relative;
+          display: inline-block;
+        }
+
+        .preloader__lines-top span:before{
+          position: absolute;
+          content: "";
+          width: 100%;
+          bottom: 0;
+          left: 0;
+          background: #79716A;
+          transition: height .3s ease-out;
+          animation: animate-fill 2s .1s ease-in-out infinite;
+        }
+
+        .preloader__lines-bottom{
+          position: absolute;
+          bottom: 6px;
+          left: 3px;
+          width: 31px;
+          height: 41px;
+          display: flex;
+          column-gap: 4px;
+          justify-content: flex-start;
+        }
+
+        .preloader__lines-bottom span{
+          min-width: 3px;
+          width: 3px;
+          height: 100%;
+          position: relative;
+          display: inline-block;
+        }
+
+        .preloader__lines-bottom span:before{
+          position: absolute;
+          content: "";
+          width: 100%;
+          top: 0;
+          left: 0;
+          background: #79716A;
+          transition: height .3s ease-out;
+          animation: animate-fill1 2s .1s ease-in-out infinite;
+        }
+
+        @keyframes animate-fill{
+          0%{
+            top: 100%;
+          }
+
+          100%{
+            top: 0;
+          }
+        }
+
+        @keyframes animate-fill1{
+          0%{
+            bottom: 100%;
+          }
+
+          100%{
+            bottom: 0;
+          }
+        }
+
+
+
+      </style>
+      <div class="preloader js-preloader">
+        <div class="preloader__wp">
+          <img src="./img/svg/preloader.svg" alt="">
+          <div class="preloader__lines-top">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="preloader__lines-bottom">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
 <section class="homescreen js-homescreen">
     <div class="swiper js-homescreen-slider">
         <div class="swiper-wrapper">
@@ -504,7 +671,6 @@
     </div>
 </section>
 <section class="section location-mp">
-
     <div class="container">
         <div class="section__heading">
             <div class="section__title-wp">
@@ -515,71 +681,122 @@
     <div class="location-mp__map-wp">
         <div class="location-mp__map js-map" id="map"></div>
         <div class="container">
-            <div class="location-mp__map-filter  js-map-filter">
-                <div class="location-mp__map-filter-item">
-                    <input id="map1" data-type="sport" type="checkbox" class="location__filter-input js-map-filter-input">
-                    <label for="map1" class="location__filter-label">
-                        <div class="location-mp__map-filter-item-icon">
-                            <svg class="icon icon-map1"><use xlink:href="#icon-map1"></use></svg>
-                        </div>
-                        ­­Спорт
-                    </label>
+            <div class="location-mp__map-filter-wp">
+                <div class="location-mp__map-filter  js-map-filter">
+                    <div class="location-mp__map-filter-item">
+                        <input id="map1" data-type="sport" type="checkbox" class="location__filter-input js-map-filter-input">
+                        <label for="map1" class="location__filter-label">
+                            <div class="location-mp__map-filter-item-icon">
+                                <svg class="icon icon-map1"><use xlink:href="#icon-map1"></use></svg>
+                            </div>
+                            ­­Спорт
+                        </label>
+                    </div>
+                    <div class="location-mp__map-filter-item">
+                        <input id="map2" data-type="education" type="checkbox" class="location__filter-input js-map-filter-input">
+                        <label for="map2" class="location__filter-label">
+                            <div class="location-mp__map-filter-item-icon">
+                                <svg class="icon icon-map2"><use xlink:href="#icon-map2"></use></svg>
+                            </div>
+                            Образование
+                        </label>
+                    </div>
+                    <div class="location-mp__map-filter-item">
+                        <input id="map3" data-type="shop" type="checkbox" class="location__filter-input js-map-filter-input">
+                        <label for="map3" class="location__filter-label">
+                            <div class="location-mp__map-filter-item-icon">
+                                <svg class="icon icon-map3"><use xlink:href="#icon-map3"></use></svg>
+                            </div>
+                            ­Магазины
+                        </label>
+                    </div>
+                    <div class="location-mp__map-filter-item">
+                        <input id="map4" data-type="health" type="checkbox" class="location__filter-input js-map-filter-input">
+                        <label for="map4" class="location__filter-label is-active">
+                            <div class="location-mp__map-filter-item-icon">
+                                <svg class="icon icon-map4"><use xlink:href="#icon-map4"></use></svg>
+                            </div>
+                            ­Здоровье и красота
+                        </label>
+                    </div>
+                    <div class="location-mp__map-filter-item">
+                        <input id="map5" data-type="nutrition" type="checkbox" class="location__filter-input js-map-filter-input">
+                        <label for="map5" class="location__filter-label">
+                            <div class="location-mp__map-filter-item-icon">
+                                <svg class="icon icon-map5"><use xlink:href="#icon-map5"></use></svg>
+                            </div>
+                            ­Питание
+                        </label>
+                    </div>
+                    <div class="location-mp__map-filter-item">
+                        <input id="map6" data-type="entertainment" type="checkbox" class="location__filter-input js-map-filter-input">
+                        <label for="map6" class="location__filter-label">
+                            <div class="location-mp__map-filter-item-icon">
+                                <svg class="icon icon-map6"><use xlink:href="#icon-map6"></use></svg>
+                            </div>
+                            ­Развлечения
+                        </label>
+                    </div>
                 </div>
-                <div class="location-mp__map-filter-item">
-                    <input id="map2" data-type="education" type="checkbox" class="location__filter-input js-map-filter-input">
-                    <label for="map2" class="location__filter-label">
-                        <div class="location-mp__map-filter-item-icon">
-                            <svg class="icon icon-map2"><use xlink:href="#icon-map2"></use></svg>
-                        </div>
-                        Образование
-                    </label>
-                </div>
-                <div class="location-mp__map-filter-item">
-                    <input id="map3" data-type="shop" type="checkbox" class="location__filter-input js-map-filter-input">
-                    <label for="map3" class="location__filter-label">
-                        <div class="location-mp__map-filter-item-icon">
-                            <svg class="icon icon-map3"><use xlink:href="#icon-map3"></use></svg>
-                        </div>
-                        ­Магазины
-                    </label>
-                </div>
-                <div class="location-mp__map-filter-item">
-                    <input id="map4" data-type="health" type="checkbox" class="location__filter-input js-map-filter-input">
-                    <label for="map4" class="location__filter-label is-active">
-                        <div class="location-mp__map-filter-item-icon">
-                            <svg class="icon icon-map4"><use xlink:href="#icon-map4"></use></svg>
-                        </div>
-                        ­Здоровье и красота
-                    </label>
-                </div>
-                <div class="location-mp__map-filter-item">
-                    <input id="map5" data-type="nutrition" type="checkbox" class="location__filter-input js-map-filter-input">
-                    <label for="map5" class="location__filter-label">
-                        <div class="location-mp__map-filter-item-icon">
-                            <svg class="icon icon-map5"><use xlink:href="#icon-map5"></use></svg>
-                        </div>
-                        ­Питание
-                    </label>
-                </div>
-                <div class="location-mp__map-filter-item">
-                    <input id="map6" data-type="entertainment" type="checkbox" class="location__filter-input js-map-filter-input">
-                    <label for="map6" class="location__filter-label">
-                        <div class="location-mp__map-filter-item-icon">
-                            <svg class="icon icon-map6"><use xlink:href="#icon-map6"></use></svg>
-                        </div>
-                        ­Развлечения
-                    </label>
-                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</section>
+<section class="section section-blockquote">
+    <div class="container">
+        <div class="section-blockquote__wp content">
+            <blockquote>
+                <p>Для жителей посёлка доступна вся инфраструктура г. Наро-Фоминска: финтесс-центры, бассейны, парки отдыха, кинотеатры, крупные продуктовые магазины, строительные рынки.</p>
+            </blockquote>
+        </div>
+    </div>
+</section>
+<section class="genplan js-genplan">
+    <div class="container">
+        <div class="section__heading">
+            <div class="section__title-wp">
+                <h2 class="section__title">Генплан</h2>
+            </div>
+        </div>
+        <div class="genplan__desc-wp">
+            <div class="genplan__desc">
+                <div class="genplan__desc-icon" style="background: #6EA9CE;"></div>
+                В продаже
+            </div>
+            <div class="genplan__desc">
+                <div class="genplan__desc-icon" style="background: #959595;"></div>
+                Зарезервирован
+            </div>
+            <div class="genplan__desc">
+                <div class="genplan__desc-icon" style="background: #FF0000;"></div>
+                Продан
             </div>
         </div>
     </div>
-        <div class="container">
-            <div class="location-mp__wp content">
-                <blockquote>
-                    <p>Для жителей посёлка доступна вся инфраструктура г. Наро-Фоминска: финтесс-центры, бассейны, парки отдыха, кинотеатры, крупные продуктовые магазины, строительные рынки.</p>
-                </blockquote>
-            </div>
+   <div class="genplan__wp">
+    <div class="genplan__img">
+        <img src="./img/content/genplan.png" alt="" class="genplan__img-img">
+    </div>
+    <svg class="genplan-area__wp" viewBox="0 0 677.5979 198.96667">
+        <path class="genplan-area" fill="none" d="m 411.48068,120.50096 -10.20101,10.27269 20.9885,11.05791 4.64545,-0.1402 7.93146,-9.56793"></path>
+        <path class="genplan-area" fill="none" d="m 396.4778,112.71284 15.14623,7.64478 -10.36825,10.41603 -15.57626,-8.17037"></path>
+        <path class="genplan-area" fill="none" d="m 382.28717,105.40251 14.11819,7.4073 -10.57487,9.69644 -14.49398,-7.60174"></path>
+    </svg>
+    <div class="genplan__number-wp">
+        <div class="genplan__number-item" style="top: 56%; left: 56%; background: #6EA9CE;">
+            16
         </div>
+        <div class="genplan__number-item" style="top: 60%; left: 58%; background: #959595; color: rgba(255, 255, 255, 0.60);">
+            17
+        </div>
+        <div class="genplan__number-item" style="top: 65%; left: 61%; background: #DF7142;">
+            18
+        </div>
+    </div>
+   </div>
 
 </section>
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
@@ -977,6 +1194,7 @@
             });
 
         }
+
     });
 
 </script>

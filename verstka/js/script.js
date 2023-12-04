@@ -477,44 +477,18 @@ $(document).ready(function () {
   slickControlSlides(".js-product-detail-nav");
   var slick_view = document.querySelectorAll(".js-project-plan-slider");
   var slick_nav = document.querySelectorAll(".js-plan-block .js-project-plan-slider-nav");
-  var slick_btn = document.querySelectorAll(".js-plan-block .js-project-plan-slider-nav button"); // var firstNum = document.querySelectorAll('.slider-nav__item');
-
-  for (var s = 0; s < slick_view.length; s++) {
-    $(slick_view[s]).on('init', function (event, slick, currentSlide, nextSlide) {
-      var slideCount = $(slick_view[s]).find(".slick-slide:not(.slick-cloned)").length;
-      $(slick_nav[s]).each(function () {
-        for (var i = 0; i < slideCount; i++) {
-          var num = i < 9 ? +(i + 1) : i + 1;
-
-          if (i === 0) {
-            $(this).append('<button class="slider-nav__item is-active">' + num + '</button>');
-          } else {
-            $(this).append('<button class="slider-nav__item">' + num + '</button>');
-          }
-        } // let firstNum = document.querySelectorAll('.slider-nav__item').classList.add('is-active');
-
-      }); //
-
-      $(".js-plan-block .js-project-plan-slider-nav button").on('click', function () {
-        var index = $(this).index();
-
-        if (!$(this).hasClass('is-active')) {
-          $(this).parents('.js-project-plan-slider-nav').find('.slider-nav__item').removeClass('is-active');
-          $(this).addClass('is-active');
-        }
-
-        $(slick_view[s]).slick('slickGoTo', index);
-      });
-    });
-  }
-
   $(".js-project-plan-slider").on("init", function (event, slick) {
     $(".js-project-plan-slider").css("opacity", "1");
   });
 
-  for (var s = 0; s < slick_view.length; s++) {
-    $(slick_view[s]).slick({
-      dots: false,
+  for (var i = 0; i < slick_view.length; i++) {
+    $(slick_view[i]).slick({
+      dots: true,
+      appendDots: slick_nav[i],
+      customPaging: function customPaging(slider, i) {
+        var thumb = jQuery(slider.$slides[i]).data();
+        return '<a class="slider-nav__item">' + ('' + (i + 1)).slice(-2) + '</a>';
+      },
       arrows: false,
       swipe: false,
       slidesToShow: 1,
@@ -526,31 +500,16 @@ $(document).ready(function () {
 
   slickControlSlides(".js-project-plan-slider"); //detail-plan
 
-  $(".js-detail-plan").on('init', function (event, slick, currentSlide, nextSlide) {
-    var slideCountPlan = $(".js-detail-plan").find(".slick-slide:not(.slick-cloned)").length;
-    $('.js-detail-plan-wp .js-detail-plan-slider-nav').each(function () {
-      for (var i = 0; i < slideCountPlan; i++) {
-        var num = i < 9 ? i + 1 : i + 1;
-        $(this).append('<button class="slider-nav__item">' + num + '</button>');
-      }
-    });
-    var firstNumPlan = document.querySelector('.slider-nav__item').classList.add('is-active');
-    $('.js-detail-plan-wp .js-detail-plan-slider-nav button').on('click', function () {
-      var indexPlan = $(this).index();
-
-      if (!$(this).hasClass('is-active')) {
-        $(this).parents('.js-detail-plan-slider-nav').find('.slider-nav__item').removeClass('is-active');
-        $(this).addClass('is-active');
-      }
-
-      $('.js-detail-plan').slick('slickGoTo', indexPlan);
-    });
-  });
   $(".js-detail-plan").on("init", function (event, slick) {
     $(".js-detail-plan").css("opacity", "1");
   });
   $('.js-detail-plan').slick({
-    dots: false,
+    dots: true,
+    appendDots: $('.js-detail-plan-slider-nav'),
+    customPaging: function customPaging(slider, t) {
+      var thumb = jQuery(slider.$slides[t]).data();
+      return '<a class="slider-nav__item">' + ('' + (t + 1)).slice(-2) + '</a>';
+    },
     arrows: false,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -654,6 +613,7 @@ $(document).ready(function () {
       blocks: [1, 3, 3, 2, 2]
     });
   }
-
-  $(".js-preloader").addClass("is-hide");
+});
+$(window).on('load', function () {
+  $('.js-preloader').addClass('is-hide');
 });

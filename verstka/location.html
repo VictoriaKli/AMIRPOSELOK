@@ -328,6 +328,173 @@
         }
       </script>
 
+      <style>
+        .preloader {
+          position: fixed;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+          -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+          background: #FFFFFF;
+          z-index: 999;
+          -webkit-transition: all 0.3s ease-out;
+          -o-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
+        }
+
+        .preloader.is-hide {
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+        }
+
+        .preloader__wp{
+          width: 75px;
+          height: 98px;
+          position: relative;
+          overflow: hidden;
+          background: #FFF;
+        }
+
+        .preloader__wp:after{
+          position: absolute;
+          content: "";
+          top: 0;
+          right: 0;
+          width: 0;
+          height: 0;
+          border-top: 25px solid #FFF;
+          border-left: 50px solid transparent;
+          z-index: 3;
+        }
+
+        .preloader__wp::before{
+          position: absolute;
+          content: "";
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 0;
+          border-bottom: 25px solid #FFF;
+          border-right: 50px solid transparent;
+          z-index: 3;
+        }
+        .preloader__wp img{
+          height: 100%;
+          object-fit: contain;
+        }
+
+        .preloader__lines-top{
+          position: absolute;
+          top: 6px;
+          right: 3px;
+          width: 31px;
+          height: 41px;
+          display: flex;
+          column-gap: 4px;
+          justify-content: flex-end;
+        }
+
+        .preloader__lines-top span{
+          min-width: 3px;
+          width: 3px;
+          height: 100%;
+          position: relative;
+          display: inline-block;
+        }
+
+        .preloader__lines-top span:before{
+          position: absolute;
+          content: "";
+          width: 100%;
+          bottom: 0;
+          left: 0;
+          background: #79716A;
+          transition: height .3s ease-out;
+          animation: animate-fill 2s .1s ease-in-out infinite;
+        }
+
+        .preloader__lines-bottom{
+          position: absolute;
+          bottom: 6px;
+          left: 3px;
+          width: 31px;
+          height: 41px;
+          display: flex;
+          column-gap: 4px;
+          justify-content: flex-start;
+        }
+
+        .preloader__lines-bottom span{
+          min-width: 3px;
+          width: 3px;
+          height: 100%;
+          position: relative;
+          display: inline-block;
+        }
+
+        .preloader__lines-bottom span:before{
+          position: absolute;
+          content: "";
+          width: 100%;
+          top: 0;
+          left: 0;
+          background: #79716A;
+          transition: height .3s ease-out;
+          animation: animate-fill1 2s .1s ease-in-out infinite;
+        }
+
+        @keyframes animate-fill{
+          0%{
+            top: 100%;
+          }
+
+          100%{
+            top: 0;
+          }
+        }
+
+        @keyframes animate-fill1{
+          0%{
+            bottom: 100%;
+          }
+
+          100%{
+            bottom: 0;
+          }
+        }
+
+
+
+      </style>
+      <div class="preloader js-preloader">
+        <div class="preloader__wp">
+          <img src="./img/svg/preloader.svg" alt="">
+          <div class="preloader__lines-top">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="preloader__lines-bottom">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
 <div class="content-entry">
     <div class="container">
       <div class="content-entry__wp">
@@ -335,6 +502,479 @@
       </div>
     </div>
 </div>
+<section class="section location-secondary">
+  <div class="container">
+      <div class="section__heading">
+          <div class="section__title-wp">
+              <h2 class="section__title">Расположение</h2>
+          </div>
+      </div>
+  </div>
+  <div class="location-mp__map-wp">
+      <div class="location-mp__map js-map" id="map"></div>
+      <div class="container">
+          <div class="location-mp__map-filter-wp">
+              <div class="location-mp__map-filter  js-map-filter">
+                  <div class="location-mp__map-filter-item">
+                      <input id="map1" data-type="sport" type="checkbox" class="location__filter-input js-map-filter-input">
+                      <label for="map1" class="location__filter-label">
+                          <div class="location-mp__map-filter-item-icon">
+                              <svg class="icon icon-map1"><use xlink:href="#icon-map1"></use></svg>
+                          </div>
+                          ­­Спорт
+                      </label>
+                  </div>
+                  <div class="location-mp__map-filter-item">
+                      <input id="map2" data-type="education" type="checkbox" class="location__filter-input js-map-filter-input">
+                      <label for="map2" class="location__filter-label">
+                          <div class="location-mp__map-filter-item-icon">
+                              <svg class="icon icon-map2"><use xlink:href="#icon-map2"></use></svg>
+                          </div>
+                          Образование
+                      </label>
+                  </div>
+                  <div class="location-mp__map-filter-item">
+                      <input id="map3" data-type="shop" type="checkbox" class="location__filter-input js-map-filter-input">
+                      <label for="map3" class="location__filter-label">
+                          <div class="location-mp__map-filter-item-icon">
+                              <svg class="icon icon-map3"><use xlink:href="#icon-map3"></use></svg>
+                          </div>
+                          ­Магазины
+                      </label>
+                  </div>
+                  <div class="location-mp__map-filter-item">
+                      <input id="map4" data-type="health" type="checkbox" class="location__filter-input js-map-filter-input">
+                      <label for="map4" class="location__filter-label is-active">
+                          <div class="location-mp__map-filter-item-icon">
+                              <svg class="icon icon-map4"><use xlink:href="#icon-map4"></use></svg>
+                          </div>
+                          ­Здоровье и красота
+                      </label>
+                  </div>
+                  <div class="location-mp__map-filter-item">
+                      <input id="map5" data-type="nutrition" type="checkbox" class="location__filter-input js-map-filter-input">
+                      <label for="map5" class="location__filter-label">
+                          <div class="location-mp__map-filter-item-icon">
+                              <svg class="icon icon-map5"><use xlink:href="#icon-map5"></use></svg>
+                          </div>
+                          ­Питание
+                      </label>
+                  </div>
+                  <div class="location-mp__map-filter-item">
+                      <input id="map6" data-type="entertainment" type="checkbox" class="location__filter-input js-map-filter-input">
+                      <label for="map6" class="location__filter-label">
+                          <div class="location-mp__map-filter-item-icon">
+                              <svg class="icon icon-map6"><use xlink:href="#icon-map6"></use></svg>
+                          </div>
+                          ­Развлечения
+                      </label>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+
+</section>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+<script>
+  $(function () {
+      if ($('#map').length) {
+          var markers = [[  55.753544, 37.121202], [  55.713144, 35.601102] , [  55.793500, 37.621102] , [  54.913645, 37.404752] , [  54.933652, 37.446416] ];
+          var data = [
+              {
+                  "NAME": "Dushlux",
+                  "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
+                  "PROPERTY_PHONE_VALUE": ["+7(495)226-07-62", "+7(495)226-07-61"],
+                  "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
+                  "PROPERTY_LINK_VALUE": "dushlux.ru",
+                  "ID": 0,
+                  "CITY": 1,
+                  "PROPERTY_TYPE_VALUE": "shop",
+              },
+              {
+                  "NAME": "Dushlux",
+                  "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
+                  "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
+                  "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
+                  "PROPERTY_LINK_VALUE": "dushlux.ru",
+                  "ID": 1,
+                  "CITY": 1,
+                  "PROPERTY_TYPE_VALUE": "education",
+              },
+              {
+                  "NAME": "Dushlux",
+                  "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
+                  "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
+                  "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
+                  "PROPERTY_LINK_VALUE": "dushlux.ru",
+                  "ID": 2,
+                  "CITY": 1,
+                  "PROPERTY_TYPE_VALUE": "nutrition",
+              },
+              {
+                  "NAME": "Dushlux",
+                  "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
+                  "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
+                  "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
+                  "PROPERTY_LINK_VALUE": "dushlux.ru",
+                  "ID": 3,
+                  "CITY": 1,
+                  "PROPERTY_TYPE_VALUE": "health",
+              },
+              {
+                  "NAME": "Dushlux",
+                  "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
+                  "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
+                  "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
+                  "PROPERTY_LINK_VALUE": "dushlux.ru",
+                  "ID": 4,
+                  "CITY": 2,
+                  "PROPERTY_TYPE_VALUE": "sport",
+              },
+              {
+                  "NAME": "Dushlux",
+                  "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
+                  "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
+                  "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
+                  "PROPERTY_LINK_VALUE": "dushlux.ru",
+                  "ID": 5,
+                  "CITY": 2,
+                  "PROPERTY_TYPE_VALUE": "entertainment",
+              },
+          ];
+
+          // Константы ключей и свойств для построения карты
+
+          const keyPropertyType = "PROPERTY_TYPE_VALUE", //Ключ свойства определяющего тип метки
+          // Опции для иконок меток
+          pointOptions = {
+              education: {
+                  balloonOffset: [83, -35],
+                  iconLayout: 'default#image',
+                  iconImageHref: './img/svg/metka1.svg',
+                  iconImageSize: [55, 55],
+                  iconImageOffset: [-25, -25],
+              },
+              shop: {
+                  balloonOffset: [83, -35],
+                  iconLayout: 'default#image',
+                  iconImageHref: './img/svg/metka2.svg',
+                  iconImageSize: [55, 55],
+                  iconImageOffset: [-27, -27],
+              },
+              entertainment: {
+                  balloonOffset: [83, -35],
+                  iconLayout: 'default#image',
+                  iconImageHref: './img/svg/metka5.svg',
+                  iconImageSize: [55, 55],
+                  iconImageOffset: [-27, -27],
+              },
+             sport: {
+              balloonOffset: [83, -35],
+              iconLayout: 'default#image',
+              iconImageHref: './img/svg/metka.svg',
+              iconImageSize: [55, 55],
+              iconImageOffset: [-27, -27],
+             },
+             health: {
+                  balloonOffset: [83, -35],
+                  iconLayout: 'default#image',
+                  iconImageHref: './img/svg/metka3.svg',
+                  iconImageSize: [55, 55],
+                  iconImageOffset: [-27, -27],
+             },
+             nutrition: {
+              balloonOffset: [83, -35],
+              iconLayout: 'default#image',
+              iconImageHref: './img/svg/metka4.svg',
+              iconImageSize: [55, 55],
+              iconImageOffset: [-27, -27],
+             },
+             default: {
+              balloonOffset: [83, -35],
+              iconLayout: 'default#image',
+              iconImageHref: './img/svg/metka.svg',
+              iconImageSize: [55, 55],
+              iconImageOffset: [-27, -27],
+             }
+          }
+
+
+
+          var mapHeight = $('#map').height();
+
+          ymaps.ready(function () {
+
+              var contactsMap = new ymaps.Map("map", {
+                      center:  [55.30954, 37.721587],
+                      zoom: 8,
+                      behaviors: ['default'],
+                      controls: [],
+
+                  }),
+
+                  MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+                      '<span style="font-weight: 600;font-size: 15px; color: #000">{{ properties.geoObjects.length }}</span>'
+                  ),
+
+                  objectManager = new ymaps.ObjectManager({
+                      clusterize: true,
+                      clusterIcons: [
+                          {
+                              href: './img/svg/claster-small.svg',
+                              size: [40, 40],
+                              offset: [-20, -20],
+                              iconContentOffset: [20, 20],
+                              shape: {
+                                  type: 'Circle',
+                                  coordinates: [0, 0],
+                                  radius: 20
+                              }
+                          },
+                      ],
+                      margin: 100,
+                      zoomMargin: 200,
+                      clusterNumbers: [3],
+                      // clusterDisableClickZoom: true,
+                      hasBallon: false,
+                      hasHint: false,
+                      openBalloonOnClick: false,
+                      clusterIconContentLayout: MyIconContentLayout
+                  });
+
+          contactsMap.options.set('maxAnimationZoomDifference', Infinity);
+          function getPointOptions(name) {
+              if (name in pointOptions) {
+                  return pointOptions[name];
+              } else {
+                  return alert(`Свойство ${name} не найдено. Задайте опции метки в объекте pointOptions!`);
+              }
+          }
+
+          function setTypePoint(object) {
+              let type = '',
+              pointProps = Object;
+              if ("type" in object.properties) {
+                  type = object.properties.type;
+              } else if ("default" in pointOptions){
+                  type = 'default';
+              } else {
+                  return alert(`Для объекта с id ${object.id} задан некорректный тип!`);
+              }
+
+              if ("options" in object) {
+                  pointProps = getPointOptions(type);
+                  for (prop in pointProps) {
+                      object.options[prop] = pointProps[prop];
+                  }
+              }
+              return object;
+          }
+
+
+
+
+              var MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+                  '<div class="popover">' +
+                  '<div class="popover__arrow"></div>' +
+                  '<div class="popover__inner">' +
+                  '<a class="popover__close" href="#">' +
+                  '<svg class="icon icon-close-big">' +
+                  '<use xlink:href="#icon-close-big"></use>' +
+                  '</svg>' +
+                  '</a>' +
+                  '$[[options.contentLayout observeSize minWidth=300 maxWidth=480]]' +
+                  '<span class="popover__tail"></span>' +
+                  '</div>' +
+                  '</div>', {
+                      build: function () {
+                          this.constructor.superclass.build.call(this);
+
+                          this._$element = $('.popover', this.getParentElement());
+
+                          this.applyElementOffset();
+
+                          this._$element.find('.popover__close')
+                              .on('click', $.proxy(this.onCloseClick, this));
+                      },
+                      clear: function () {
+                          this._$element.find('.popover__close')
+                              .off('click');
+
+                          this.constructor.superclass.clear.call(this);
+                      },
+                      onSublayoutSizeChange: function () {
+                          MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                          if (!this._isElement(this._$element)) {
+                              return;
+                          }
+
+                          this.applyElementOffset();
+
+                          this.events.fire('shapechange');
+                      },
+                      applyElementOffset: function () {
+                          this._$element.css({
+                              left: -(this._$element[0].offsetWidth / 2.2),
+                              top: -(this._$element[0].offsetHeight + this._$element.find('.popover__arrow')[0].offsetHeight)
+                          });
+                      },
+                      onCloseClick: function (e) {
+                          e.preventDefault();
+
+                          this.events.fire('userclose');
+                      },
+                      getShape: function () {
+                          if (!this._isElement(this._$element)) {
+                              return MyBalloonLayout.superclass.getShape.call(this);
+                          }
+
+                          var position = this._$element.position();
+
+                          return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                              [position.left, position.top], [
+                                  position.left + this._$element[0].offsetWidth,
+                                  position.top + this._$element[0].offsetHeight + this._$element.find('.popover__arrow')[0].offsetHeight
+                              ]
+                          ]));
+                      },
+                      _isElement: function (element) {
+                          return element && element[0] && element.find('.popover__arrow')[0];
+                      }
+                  });
+
+              var MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+                  '<div class="popover__content">$[properties.balloonContent]</div>'
+              );
+
+              contactsMap.behaviors.disable(['scrollZoom']);
+
+              var collection = {
+                  type: "FeatureCollection",
+                  features: []
+              };
+
+              for (var i = 0; i < markers.length; i++) {
+                  var marker = markers[i];
+                  var item = data[i];
+                  var phones = '';
+                  // Поправь ключи массив в зависимости от компонента
+                  if (Array.isArray(data[i].PROPERTY_PHONE_VALUE)) {
+                      data[i].PROPERTY_PHONE_VALUE.forEach(item => {
+                          phones += `<a href="tel:${item.replace(/[^\d]/g,'')}">${item}</a>`
+                      });
+                  } else {
+                      phones = `<a href="tel:${data[i].PROPERTY_PHONE_VALUE.replace(/[^\d]/g,'')}">${data[i].PROPERTY_PHONE_VALUE}</a>`
+                  }
+
+                  var balloon = `
+                 <div class="ballon">
+                      <div class="ballon__head">
+                         <div class="baloon__head-text">
+                             ${data[i].NAME}
+                         </div>
+                     </div>
+                     <div class="baloon__body">
+                         <div class="baloon__props">
+                             <div style="${data[i].PROPERTY_ADDRESS_VALUE ? '' : 'display:none'}" class="baloon__line">
+                                 <svg class="icon icon-map-address"><use xlink:href="#icon-map-address"></use></svg>
+                                 <span>${item.PROPERTY_ADDRESS_VALUE}</span>
+                             </div>
+                             <div style="${data[i].PROPERTY_PHONE_VALUE ? '' : 'display:none'}" class="baloon__line">
+                                 <svg class="icon icon-map-phone"><use xlink:href="#icon-map-phone"></use></svg>
+                                 ${phones}
+                             </div>
+                              <div style="${data[i].PROPERTY_MAIL_VALUE ? '' : 'display:none'}" class="baloon__line">
+                                 <svg class="icon icon-map-mail"><use xlink:href="#icon-map-mail"></use></svg>
+                                  <a href="mailto:${item.PROPERTY_MAIL_VALUE}">${item.PROPERTY_MAIL_VALUE}</a>
+                             </div>
+                             <div style="${data[i].PROPERTY_LINK_VALUE ? '' : 'display:none'}" class="baloon__line">
+                                 <svg class="icon icon-map-geo"><use xlink:href="#icon-map-geo"></use></svg>
+                                 <a href="${item.PROPERTY_LINK_VALUE}">${item.PROPERTY_LINK_VALUE}</a>
+                             </a>
+                         </div>
+                     </div>
+                 </div>
+                 `;
+
+                  collection.features.push(
+                      setTypePoint(
+                      {
+                          type: 'Feature',
+                          id: i,
+                          geometry: {
+                              type: 'Point',
+                              coordinates: marker,
+                              options: {
+                                  pixelRendering: "static"
+                              }
+                          },
+                          properties: {
+                              balloonContent: balloon,
+                              hintContent: item.NAME,
+                              type: item[keyPropertyType]
+                          },
+                          options: {
+                              balloonLayout: MyBalloonLayout,
+                              balloonContentLayout: MyBalloonContentLayout,
+                          }
+                      }
+                  )
+                  )
+              }
+              objectManager.add(collection)
+
+              contactsMap.geoObjects.add(objectManager);
+
+              contactsMap.controls.add('zoomControl', {
+                  size: 'small',
+                  float: 'none',
+                  position: {
+                      top: mapHeight / 2 - 30,
+                      right: '45px'
+                  }
+              });
+
+
+
+          function setState () {
+
+              let filter = new Array,
+              filterQuery = '';
+
+              if ($(".js-map-filter-input:checked").length >= 1) {
+                  $(".js-map-filter-input:checked").each(function() {
+                      filter.push(`properties.type == '${$(this).data('type')}'`);
+                  });
+                  if (filter.length > 1) {
+                      filterQuery = filter.join(' || ');
+                  } else {
+                      filterQuery = filter[0];
+                  }
+                  objectManager.setFilter(filterQuery);
+
+              } else {
+                  objectManager.setFilter();
+              }
+
+              contactsMap.setBounds(contactsMap.geoObjects.getBounds(),
+                  {checkZoomRange:true, zoomMargin:100}).then(function(){ if(contactsMap.getZoom() > 14) contactsMap.setZoom(14);});
+          }
+
+          $('.location__filter-input').click(setState);
+
+
+              contactsMap.setBounds(contactsMap.geoObjects.getBounds(),
+                  {checkZoomRange:true, zoomMargin:100}).then(function(){ if(contactsMap.getZoom() > 14) contactsMap.setZoom(14);});
+          });
+
+      }
+
+  });
+
+</script>
 </div>
 <footer class="footer">
   <div class="container">
