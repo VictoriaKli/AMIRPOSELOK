@@ -7068,6 +7068,22 @@ section {
   position: relative;
   max-width: inherit;
 }
+.genplan__img::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  cursor: pointer;
+}
+.genplan__img::-webkit-scrollbar-track {
+  background: #e4f0e4;
+  opacity: 0.9;
+}
+.genplan__img::-webkit-scrollbar-thumb {
+  background-color: var(--black2);
+  border: none;
+}
+.genplan__img::-webkit-scrollbar-thumb:hover {
+  color: rgba(255, 255, 255, 0.2);
+}
 
 .genplan-area__wp {
   position: absolute;
@@ -7318,6 +7334,27 @@ section {
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 100%;
+}
+
+.genplan__desc-arrow {
+  position: absolute;
+  left: 0;
+  top: calc(50% - 20px);
+  z-index: 10;
+  font-size: 40px;
+  color: var(--white);
+  cursor: pointer;
+  padding: 10px;
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.genplan__desc-arrow.genplan__desc-arrow--next {
+  left: initial;
+  right: 0;
+}
+.genplan__desc-arrow:hover {
+  opacity: 0.8;
 }
 
 @media (max-width: 768px) {

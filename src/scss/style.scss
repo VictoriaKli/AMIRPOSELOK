@@ -6786,6 +6786,26 @@ section{
     position: relative;
     max-width: inherit;
   }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    cursor: pointer;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #e4f0e4;
+    opacity: .9;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--black2);
+    border: none;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    color: rgba(255, 255, 255, 0.20);
+  }
 }
 
 
@@ -6988,6 +7008,29 @@ box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
   justify-content: center;
   border-radius: 100%;
 }
+
+.genplan__desc-arrow{
+  position: absolute;
+  left:0;
+  top: calc((50% - 20px));
+  z-index: 10;
+  font-size: 40px;
+  color: var(--white);
+  cursor: pointer;
+  padding: 10px;
+  transition: all .3s ease-out;
+
+  &.genplan__desc-arrow--next{
+    left: initial;
+    right: 0;
+    // padding: 10px 0 10px 10px;
+  }
+
+  &:hover{
+    opacity: .8;
+  }
+}
+
 
 @media (max-width: 768px) {
   .genplan__wp,

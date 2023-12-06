@@ -777,6 +777,12 @@
         </div>
     </div>
    <div class="genplan__wp">
+    <div class="genplan__desc-arrow genplan__desc-arrow--prev">
+        <svg class="icon icon-arrow-prev"><use xlink:href="#icon-arrow-prev"></use></svg>
+    </div>
+    <div class="genplan__desc-arrow genplan__desc-arrow--next">
+        <svg class="icon icon-arrow-next"><use xlink:href="#icon-arrow-next"></use></svg>
+    </div>
     <div class="genplan__img js-genplan-container">
         <svg class="genplan-area__wp" viewBox="0 0 677.5979 198.96667">
             <path class="genplan-area" fill="none" d="m 411.48068,120.50096 -10.20101,10.27269 20.9885,11.05791 4.64545,-0.1402 7.93146,-9.56793"></path>
@@ -990,7 +996,9 @@
             var markers = [[  55.753544, 37.121202], [  55.713144, 35.601102] , [  55.793500, 37.621102] , [  54.913645, 37.404752] , [  54.933652, 37.446416] ];
             var data = [
                 {
-                    "NAME": "Dushlux",
+                    "NAME": "Школа №6",
+                    "PROPERTY_ICON": "./img/svg/metka2-shop.svg",
+                    "PROPERTY_DESC_VALUE": "Образование",
                     "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
                     "PROPERTY_PHONE_VALUE": ["+7(495)226-07-62", "+7(495)226-07-61"],
                     "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
@@ -1059,42 +1067,42 @@
                 education: {
                     balloonOffset: [83, -35],
                     iconLayout: 'default#image',
-                    iconImageHref: './img/svg/metka1.svg',
+                    iconImageHref: './img/svg/metka1-ed.svg',
                     iconImageSize: [55, 55],
                     iconImageOffset: [-25, -25],
                 },
                 shop: {
                     balloonOffset: [83, -35],
                     iconLayout: 'default#image',
-                    iconImageHref: './img/svg/metka2.svg',
+                    iconImageHref: './img/svg/metka2-shop.svg',
                     iconImageSize: [55, 55],
                     iconImageOffset: [-27, -27],
                 },
                 entertainment: {
                     balloonOffset: [83, -35],
                     iconLayout: 'default#image',
-                    iconImageHref: './img/svg/metka5.svg',
+                    iconImageHref: './img/svg/metka5-enter.svg',
                     iconImageSize: [55, 55],
                     iconImageOffset: [-27, -27],
                 },
                sport: {
                 balloonOffset: [83, -35],
                 iconLayout: 'default#image',
-                iconImageHref: './img/svg/metka.svg',
+                iconImageHref: './img/svg/metka-sport.svg',
                 iconImageSize: [55, 55],
                 iconImageOffset: [-27, -27],
                },
                health: {
                     balloonOffset: [83, -35],
                     iconLayout: 'default#image',
-                    iconImageHref: './img/svg/metka3.svg',
+                    iconImageHref: './img/svg/metka3-health.svg',
                     iconImageSize: [55, 55],
                     iconImageOffset: [-27, -27],
                },
                nutrition: {
                 balloonOffset: [83, -35],
                 iconLayout: 'default#image',
-                iconImageHref: './img/svg/metka4.svg',
+                iconImageHref: './img/svg/metka4-nutri.svg',
                 iconImageSize: [55, 55],
                 iconImageOffset: [-27, -27],
                },
@@ -1146,7 +1154,7 @@
                         // clusterDisableClickZoom: true,
                         hasBallon: false,
                         hasHint: false,
-                        openBalloonOnClick: false,
+                        openBalloonOnClick: true,
                         clusterIconContentLayout: MyIconContentLayout
                     });
 
@@ -1285,9 +1293,11 @@
                        </div>
                        <div class="baloon__body">
                            <div class="baloon__props">
-                               <div style="${data[i].PROPERTY_ADDRESS_VALUE ? '' : 'display:none'}" class="baloon__line">
-                                   <svg class="icon icon-map-address"><use xlink:href="#icon-map-address"></use></svg>
-                                   <span>${item.PROPERTY_ADDRESS_VALUE}</span>
+                               <div style="${data[i].PROPERTY_DESC_VALUE ? '' : 'display:none'}" class="baloon__line">
+                                    <span class="baloon__line-icon">
+                                        <img src="${item.PROPERTY_ICON}" alt="${item.PROPERTY_DESC_VALUE}" title="${item.PROPERTY_DESC_VALUE}">
+                                    </span>
+                                   <span>${item.PROPERTY_DESC_VALUE}</span>
                                </div>
                                <div style="${data[i].PROPERTY_PHONE_VALUE ? '' : 'display:none'}" class="baloon__line">
                                    <svg class="icon icon-map-phone"><use xlink:href="#icon-map-phone"></use></svg>
