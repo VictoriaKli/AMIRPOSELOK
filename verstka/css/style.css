@@ -4139,7 +4139,7 @@ ul {
     padding-left: 0;
   }
   .location-mp__map-filter::-webkit-scrollbar {
-    height: 10px;
+    height: 6px;
     padding-left: 20px;
   }
   .location-mp__map-filter::-webkit-scrollbar-track {
@@ -6534,6 +6534,18 @@ section {
   min-width: 24px;
 }
 
+.popover__tail {
+  border: 11px solid transparent;
+  border-top-color: #fff;
+  margin-left: -10px;
+  position: absolute;
+  left: -12px;
+  top: 18%;
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
 @media (max-width: 1199px) {
   .contacts__list {
     grid-template-columns: repeat(2, calc(50% - 21px));
@@ -7030,7 +7042,7 @@ section {
   -webkit-column-gap: 14px;
      -moz-column-gap: 14px;
           column-gap: 14px;
-  z-index: 2;
+  z-index: 7;
 }
 
 .genplan__desc {
@@ -7078,7 +7090,7 @@ section {
   opacity: 0.9;
 }
 .genplan__img::-webkit-scrollbar-thumb {
-  background-color: var(--black2);
+  background-color: #68753c;
   border: none;
 }
 .genplan__img::-webkit-scrollbar-thumb:hover {
@@ -7339,7 +7351,7 @@ section {
 .genplan__desc-arrow {
   position: absolute;
   left: 0;
-  top: calc(50% - 20px);
+  top: calc(50% - 24px);
   z-index: 10;
   font-size: 40px;
   color: var(--white);
@@ -7375,6 +7387,38 @@ section {
     top: 45px;
   }
   .genplan__desc-wp {
-    bottom: 40px;
+    bottom: 20px;
+    padding: 7px 15px;
+  }
+  .genplan__desc-icon {
+    height: 11px;
+    width: 11px;
+  }
+  .genplan__desc {
+    font-size: 9px;
+    line-height: 11px;
+  }
+  .genplan__desc-arrow {
+    font-size: 28px;
+  }
+  .genplan__balloon-head-name {
+    font-size: 16px;
+  }
+  .genplan__balloon-body-item-value {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .genplan__balloon-body-footer-price {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .genplan__balloon-head {
+    padding-bottom: 10px;
+  }
+  .genplan__balloon-body-row {
+    padding-top: 4px;
+  }
+  .genplan__balloon-simple {
+    font-size: 15px;
   }
 }

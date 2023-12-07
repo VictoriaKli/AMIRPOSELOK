@@ -993,12 +993,12 @@
 <script>
     $(function () {
         if ($('#map').length) {
-            var markers = [[  55.753544, 37.121202], [  55.713144, 35.601102] , [  55.793500, 37.621102] , [  54.913645, 37.404752] , [  54.933652, 37.446416] ];
+            var markers = [[  55.753544, 37.121202], [  55.713144, 35.601102] , [  55.793500, 37.621102] , [  54.913645, 37.404752] , [  54.933652, 37.446416] , [  54.933652, 37.455416]];
             var data = [
                 {
                     "NAME": "Школа №6",
-                    "PROPERTY_ICON": "./img/svg/metka2-shop.svg",
-                    "PROPERTY_DESC_VALUE": "Образование",
+                    "PROPERTY_ICON": "./img/svg/shop-b.svg",
+                    "PROPERTY_DESC_VALUE": "­Магазины",
                     "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
                     "PROPERTY_PHONE_VALUE": ["+7(495)226-07-62", "+7(495)226-07-61"],
                     "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
@@ -1008,7 +1008,9 @@
                     "PROPERTY_TYPE_VALUE": "shop",
                 },
                 {
-                    "NAME": "Dushlux",
+                    "NAME": "Школа №6",
+                    "PROPERTY_ICON": "./img/svg/ed-b.svg",
+                    "PROPERTY_DESC_VALUE": "Образование",
                     "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
                     "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
                     "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
@@ -1018,7 +1020,9 @@
                     "PROPERTY_TYPE_VALUE": "education",
                 },
                 {
-                    "NAME": "Dushlux",
+                    "NAME": "Школа №6",
+                    "PROPERTY_ICON": "./img/svg/food-b.svg",
+                    "PROPERTY_DESC_VALUE": "­Питание",
                     "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
                     "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
                     "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
@@ -1028,7 +1032,9 @@
                     "PROPERTY_TYPE_VALUE": "nutrition",
                 },
                 {
-                    "NAME": "Dushlux",
+                    "NAME": "Школа №6",
+                    "PROPERTY_ICON": "./img/svg/med-b.svg",
+                    "PROPERTY_DESC_VALUE": "­Здоровье и красота",
                     "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
                     "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
                     "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
@@ -1038,7 +1044,9 @@
                     "PROPERTY_TYPE_VALUE": "health",
                 },
                 {
-                    "NAME": "Dushlux",
+                    "NAME": "Школа №6",
+                    "PROPERTY_ICON": "./img/svg/sport-b.svg",
+                    "PROPERTY_DESC_VALUE": "­­Спорт",
                     "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
                     "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
                     "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
@@ -1048,7 +1056,9 @@
                     "PROPERTY_TYPE_VALUE": "sport",
                 },
                 {
-                    "NAME": "Dushlux",
+                    "NAME": "Школа №6",
+                    "PROPERTY_ICON": "./img/svg/int-b.svg",
+                    "PROPERTY_DESC_VALUE": "­Развлечения",
                     "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
                     "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
                     "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
@@ -1137,7 +1147,7 @@
                         clusterize: true,
                         clusterIcons: [
                             {
-                                href: './img/svg/claster-small.svg',
+                                href: './img/svg/claster-small-b.svg',
                                 size: [40, 40],
                                 offset: [-20, -20],
                                 iconContentOffset: [20, 20],
@@ -1195,8 +1205,8 @@
                     '<div class="popover__arrow"></div>' +
                     '<div class="popover__inner">' +
                     '<a class="popover__close" href="#">' +
-                    '<svg class="icon icon-close-big">' +
-                    '<use xlink:href="#icon-close-big"></use>' +
+                    '<svg class="icon icon-close">' +
+                    '<use xlink:href="#icon-close"></use>' +
                     '</svg>' +
                     '</a>' +
                     '$[[options.contentLayout observeSize minWidth=300 maxWidth=480]]' +
@@ -1232,8 +1242,8 @@
                         },
                         applyElementOffset: function () {
                             this._$element.css({
-                                left: -(this._$element[0].offsetWidth / 2.2),
-                                top: -(this._$element[0].offsetHeight + this._$element.find('.popover__arrow')[0].offsetHeight)
+                                left: -(this._$element[0].offsetWidth / 5),
+                                top: -(this._$element[0].offsetHeight + this._$element.find('.popover__arrow')[0].offsetHeight - 150)
                             });
                         },
                         onCloseClick: function (e) {
@@ -1299,18 +1309,6 @@
                                     </span>
                                    <span>${item.PROPERTY_DESC_VALUE}</span>
                                </div>
-                               <div style="${data[i].PROPERTY_PHONE_VALUE ? '' : 'display:none'}" class="baloon__line">
-                                   <svg class="icon icon-map-phone"><use xlink:href="#icon-map-phone"></use></svg>
-                                   ${phones}
-                               </div>
-                                <div style="${data[i].PROPERTY_MAIL_VALUE ? '' : 'display:none'}" class="baloon__line">
-                                   <svg class="icon icon-map-mail"><use xlink:href="#icon-map-mail"></use></svg>
-                                    <a href="mailto:${item.PROPERTY_MAIL_VALUE}">${item.PROPERTY_MAIL_VALUE}</a>
-                               </div>
-                               <div style="${data[i].PROPERTY_LINK_VALUE ? '' : 'display:none'}" class="baloon__line">
-                                   <svg class="icon icon-map-geo"><use xlink:href="#icon-map-geo"></use></svg>
-                                   <a href="${item.PROPERTY_LINK_VALUE}">${item.PROPERTY_LINK_VALUE}</a>
-                               </a>
                            </div>
                        </div>
                    </div>

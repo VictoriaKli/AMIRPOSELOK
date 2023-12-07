@@ -578,401 +578,403 @@
 </section>
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 <script>
-  $(function () {
-      if ($('#map').length) {
-          var markers = [[  55.753544, 37.121202], [  55.713144, 35.601102] , [  55.793500, 37.621102] , [  54.913645, 37.404752] , [  54.933652, 37.446416] ];
-          var data = [
-              {
-                  "NAME": "Dushlux",
-                  "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
-                  "PROPERTY_PHONE_VALUE": ["+7(495)226-07-62", "+7(495)226-07-61"],
-                  "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
-                  "PROPERTY_LINK_VALUE": "dushlux.ru",
-                  "ID": 0,
-                  "CITY": 1,
-                  "PROPERTY_TYPE_VALUE": "shop",
-              },
-              {
-                  "NAME": "Dushlux",
-                  "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
-                  "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
-                  "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
-                  "PROPERTY_LINK_VALUE": "dushlux.ru",
-                  "ID": 1,
-                  "CITY": 1,
-                  "PROPERTY_TYPE_VALUE": "education",
-              },
-              {
-                  "NAME": "Dushlux",
-                  "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
-                  "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
-                  "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
-                  "PROPERTY_LINK_VALUE": "dushlux.ru",
-                  "ID": 2,
-                  "CITY": 1,
-                  "PROPERTY_TYPE_VALUE": "nutrition",
-              },
-              {
-                  "NAME": "Dushlux",
-                  "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
-                  "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
-                  "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
-                  "PROPERTY_LINK_VALUE": "dushlux.ru",
-                  "ID": 3,
-                  "CITY": 1,
-                  "PROPERTY_TYPE_VALUE": "health",
-              },
-              {
-                  "NAME": "Dushlux",
-                  "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
-                  "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
-                  "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
-                  "PROPERTY_LINK_VALUE": "dushlux.ru",
-                  "ID": 4,
-                  "CITY": 2,
-                  "PROPERTY_TYPE_VALUE": "sport",
-              },
-              {
-                  "NAME": "Dushlux",
-                  "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
-                  "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
-                  "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
-                  "PROPERTY_LINK_VALUE": "dushlux.ru",
-                  "ID": 5,
-                  "CITY": 2,
-                  "PROPERTY_TYPE_VALUE": "entertainment",
-              },
-          ];
+    $(function () {
+        if ($('#map').length) {
+            var markers = [[  55.753544, 37.121202], [  55.713144, 35.601102] , [  55.793500, 37.621102] , [  54.913645, 37.404752] , [  54.933652, 37.446416] , [  54.933652, 37.455416]];
+            var data = [
+                {
+                    "NAME": "Школа №6",
+                    "PROPERTY_ICON": "./img/svg/shop-b.svg",
+                    "PROPERTY_DESC_VALUE": "­Магазины",
+                    "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
+                    "PROPERTY_PHONE_VALUE": ["+7(495)226-07-62", "+7(495)226-07-61"],
+                    "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
+                    "PROPERTY_LINK_VALUE": "dushlux.ru",
+                    "ID": 0,
+                    "CITY": 1,
+                    "PROPERTY_TYPE_VALUE": "shop",
+                },
+                {
+                    "NAME": "Школа №6",
+                    "PROPERTY_ICON": "./img/svg/ed-b.svg",
+                    "PROPERTY_DESC_VALUE": "Образование",
+                    "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
+                    "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
+                    "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
+                    "PROPERTY_LINK_VALUE": "dushlux.ru",
+                    "ID": 1,
+                    "CITY": 1,
+                    "PROPERTY_TYPE_VALUE": "education",
+                },
+                {
+                    "NAME": "Школа №6",
+                    "PROPERTY_ICON": "./img/svg/food-b.svg",
+                    "PROPERTY_DESC_VALUE": "­Питание",
+                    "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
+                    "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
+                    "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
+                    "PROPERTY_LINK_VALUE": "dushlux.ru",
+                    "ID": 2,
+                    "CITY": 1,
+                    "PROPERTY_TYPE_VALUE": "nutrition",
+                },
+                {
+                    "NAME": "Школа №6",
+                    "PROPERTY_ICON": "./img/svg/med-b.svg",
+                    "PROPERTY_DESC_VALUE": "­Здоровье и красота",
+                    "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
+                    "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
+                    "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
+                    "PROPERTY_LINK_VALUE": "dushlux.ru",
+                    "ID": 3,
+                    "CITY": 1,
+                    "PROPERTY_TYPE_VALUE": "health",
+                },
+                {
+                    "NAME": "Школа №6",
+                    "PROPERTY_ICON": "./img/svg/sport-b.svg",
+                    "PROPERTY_DESC_VALUE": "­­Спорт",
+                    "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
+                    "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
+                    "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
+                    "PROPERTY_LINK_VALUE": "dushlux.ru",
+                    "ID": 4,
+                    "CITY": 2,
+                    "PROPERTY_TYPE_VALUE": "sport",
+                },
+                {
+                    "NAME": "Школа №6",
+                    "PROPERTY_ICON": "./img/svg/int-b.svg",
+                    "PROPERTY_DESC_VALUE": "­Развлечения",
+                    "PROPERTY_ADDRESS_VALUE": "г. Мытищи,Волковское шоссе, вл. 5а, стр.1, офис 502бц «Волковский»",
+                    "PROPERTY_PHONE_VALUE": "+7(495)226-07-62",
+                    "PROPERTY_MAIL_VALUE": "info@dushlux.ru",
+                    "PROPERTY_LINK_VALUE": "dushlux.ru",
+                    "ID": 5,
+                    "CITY": 2,
+                    "PROPERTY_TYPE_VALUE": "entertainment",
+                },
+            ];
 
-          // Константы ключей и свойств для построения карты
+            // Константы ключей и свойств для построения карты
 
-          const keyPropertyType = "PROPERTY_TYPE_VALUE", //Ключ свойства определяющего тип метки
-          // Опции для иконок меток
-          pointOptions = {
-              education: {
-                  balloonOffset: [83, -35],
-                  iconLayout: 'default#image',
-                  iconImageHref: './img/svg/metka1.svg',
-                  iconImageSize: [55, 55],
-                  iconImageOffset: [-25, -25],
-              },
-              shop: {
-                  balloonOffset: [83, -35],
-                  iconLayout: 'default#image',
-                  iconImageHref: './img/svg/metka2.svg',
-                  iconImageSize: [55, 55],
-                  iconImageOffset: [-27, -27],
-              },
-              entertainment: {
-                  balloonOffset: [83, -35],
-                  iconLayout: 'default#image',
-                  iconImageHref: './img/svg/metka5.svg',
-                  iconImageSize: [55, 55],
-                  iconImageOffset: [-27, -27],
-              },
-             sport: {
-              balloonOffset: [83, -35],
-              iconLayout: 'default#image',
-              iconImageHref: './img/svg/metka.svg',
-              iconImageSize: [55, 55],
-              iconImageOffset: [-27, -27],
-             },
-             health: {
-                  balloonOffset: [83, -35],
-                  iconLayout: 'default#image',
-                  iconImageHref: './img/svg/metka3.svg',
-                  iconImageSize: [55, 55],
-                  iconImageOffset: [-27, -27],
-             },
-             nutrition: {
-              balloonOffset: [83, -35],
-              iconLayout: 'default#image',
-              iconImageHref: './img/svg/metka4.svg',
-              iconImageSize: [55, 55],
-              iconImageOffset: [-27, -27],
-             },
-             default: {
-              balloonOffset: [83, -35],
-              iconLayout: 'default#image',
-              iconImageHref: './img/svg/metka.svg',
-              iconImageSize: [55, 55],
-              iconImageOffset: [-27, -27],
-             }
-          }
-
-
-
-          var mapHeight = $('#map').height();
-
-          ymaps.ready(function () {
-
-              var contactsMap = new ymaps.Map("map", {
-                      center:  [55.30954, 37.721587],
-                      zoom: 8,
-                      behaviors: ['default'],
-                      controls: [],
-
-                  }),
-
-                  MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-                      '<span style="font-weight: 600;font-size: 15px; color: #000">{{ properties.geoObjects.length }}</span>'
-                  ),
-
-                  objectManager = new ymaps.ObjectManager({
-                      clusterize: true,
-                      clusterIcons: [
-                          {
-                              href: './img/svg/claster-small.svg',
-                              size: [40, 40],
-                              offset: [-20, -20],
-                              iconContentOffset: [20, 20],
-                              shape: {
-                                  type: 'Circle',
-                                  coordinates: [0, 0],
-                                  radius: 20
-                              }
-                          },
-                      ],
-                      margin: 100,
-                      zoomMargin: 200,
-                      clusterNumbers: [3],
-                      // clusterDisableClickZoom: true,
-                      hasBallon: false,
-                      hasHint: false,
-                      openBalloonOnClick: false,
-                      clusterIconContentLayout: MyIconContentLayout
-                  });
-
-          contactsMap.options.set('maxAnimationZoomDifference', Infinity);
-          function getPointOptions(name) {
-              if (name in pointOptions) {
-                  return pointOptions[name];
-              } else {
-                  return alert(`Свойство ${name} не найдено. Задайте опции метки в объекте pointOptions!`);
-              }
-          }
-
-          function setTypePoint(object) {
-              let type = '',
-              pointProps = Object;
-              if ("type" in object.properties) {
-                  type = object.properties.type;
-              } else if ("default" in pointOptions){
-                  type = 'default';
-              } else {
-                  return alert(`Для объекта с id ${object.id} задан некорректный тип!`);
-              }
-
-              if ("options" in object) {
-                  pointProps = getPointOptions(type);
-                  for (prop in pointProps) {
-                      object.options[prop] = pointProps[prop];
-                  }
-              }
-              return object;
-          }
+            const keyPropertyType = "PROPERTY_TYPE_VALUE", //Ключ свойства определяющего тип метки
+            // Опции для иконок меток
+            pointOptions = {
+                education: {
+                    balloonOffset: [83, -35],
+                    iconLayout: 'default#image',
+                    iconImageHref: './img/svg/metka1-ed.svg',
+                    iconImageSize: [55, 55],
+                    iconImageOffset: [-25, -25],
+                },
+                shop: {
+                    balloonOffset: [83, -35],
+                    iconLayout: 'default#image',
+                    iconImageHref: './img/svg/metka2-shop.svg',
+                    iconImageSize: [55, 55],
+                    iconImageOffset: [-27, -27],
+                },
+                entertainment: {
+                    balloonOffset: [83, -35],
+                    iconLayout: 'default#image',
+                    iconImageHref: './img/svg/metka5-enter.svg',
+                    iconImageSize: [55, 55],
+                    iconImageOffset: [-27, -27],
+                },
+               sport: {
+                balloonOffset: [83, -35],
+                iconLayout: 'default#image',
+                iconImageHref: './img/svg/metka-sport.svg',
+                iconImageSize: [55, 55],
+                iconImageOffset: [-27, -27],
+               },
+               health: {
+                    balloonOffset: [83, -35],
+                    iconLayout: 'default#image',
+                    iconImageHref: './img/svg/metka3-health.svg',
+                    iconImageSize: [55, 55],
+                    iconImageOffset: [-27, -27],
+               },
+               nutrition: {
+                balloonOffset: [83, -35],
+                iconLayout: 'default#image',
+                iconImageHref: './img/svg/metka4-nutri.svg',
+                iconImageSize: [55, 55],
+                iconImageOffset: [-27, -27],
+               },
+               default: {
+                balloonOffset: [83, -35],
+                iconLayout: 'default#image',
+                iconImageHref: './img/svg/metka.svg',
+                iconImageSize: [55, 55],
+                iconImageOffset: [-27, -27],
+               }
+            }
 
 
 
+            var mapHeight = $('#map').height();
 
-              var MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
-                  '<div class="popover">' +
-                  '<div class="popover__arrow"></div>' +
-                  '<div class="popover__inner">' +
-                  '<a class="popover__close" href="#">' +
-                  '<svg class="icon icon-close-big">' +
-                  '<use xlink:href="#icon-close-big"></use>' +
-                  '</svg>' +
-                  '</a>' +
-                  '$[[options.contentLayout observeSize minWidth=300 maxWidth=480]]' +
-                  '<span class="popover__tail"></span>' +
-                  '</div>' +
-                  '</div>', {
-                      build: function () {
-                          this.constructor.superclass.build.call(this);
+            ymaps.ready(function () {
 
-                          this._$element = $('.popover', this.getParentElement());
+                var contactsMap = new ymaps.Map("map", {
+                        center:  [55.30954, 37.721587],
+                        zoom: 8,
+                        behaviors: ['default'],
+                        controls: [],
 
-                          this.applyElementOffset();
+                    }),
 
-                          this._$element.find('.popover__close')
-                              .on('click', $.proxy(this.onCloseClick, this));
-                      },
-                      clear: function () {
-                          this._$element.find('.popover__close')
-                              .off('click');
+                    MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+                        '<span style="font-weight: 600;font-size: 15px; color: #000">{{ properties.geoObjects.length }}</span>'
+                    ),
 
-                          this.constructor.superclass.clear.call(this);
-                      },
-                      onSublayoutSizeChange: function () {
-                          MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+                    objectManager = new ymaps.ObjectManager({
+                        clusterize: true,
+                        clusterIcons: [
+                            {
+                                href: './img/svg/claster-small-b.svg',
+                                size: [40, 40],
+                                offset: [-20, -20],
+                                iconContentOffset: [20, 20],
+                                shape: {
+                                    type: 'Circle',
+                                    coordinates: [0, 0],
+                                    radius: 20
+                                }
+                            },
+                        ],
+                        margin: 100,
+                        zoomMargin: 200,
+                        clusterNumbers: [3],
+                        // clusterDisableClickZoom: true,
+                        hasBallon: false,
+                        hasHint: false,
+                        openBalloonOnClick: true,
+                        clusterIconContentLayout: MyIconContentLayout
+                    });
 
-                          if (!this._isElement(this._$element)) {
-                              return;
-                          }
+            contactsMap.options.set('maxAnimationZoomDifference', Infinity);
+            function getPointOptions(name) {
+                if (name in pointOptions) {
+                    return pointOptions[name];
+                } else {
+                    return alert(`Свойство ${name} не найдено. Задайте опции метки в объекте pointOptions!`);
+                }
+            }
 
-                          this.applyElementOffset();
+            function setTypePoint(object) {
+                let type = '',
+                pointProps = Object;
+                if ("type" in object.properties) {
+                    type = object.properties.type;
+                } else if ("default" in pointOptions){
+                    type = 'default';
+                } else {
+                    return alert(`Для объекта с id ${object.id} задан некорректный тип!`);
+                }
 
-                          this.events.fire('shapechange');
-                      },
-                      applyElementOffset: function () {
-                          this._$element.css({
-                              left: -(this._$element[0].offsetWidth / 2.2),
-                              top: -(this._$element[0].offsetHeight + this._$element.find('.popover__arrow')[0].offsetHeight)
-                          });
-                      },
-                      onCloseClick: function (e) {
-                          e.preventDefault();
-
-                          this.events.fire('userclose');
-                      },
-                      getShape: function () {
-                          if (!this._isElement(this._$element)) {
-                              return MyBalloonLayout.superclass.getShape.call(this);
-                          }
-
-                          var position = this._$element.position();
-
-                          return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
-                              [position.left, position.top], [
-                                  position.left + this._$element[0].offsetWidth,
-                                  position.top + this._$element[0].offsetHeight + this._$element.find('.popover__arrow')[0].offsetHeight
-                              ]
-                          ]));
-                      },
-                      _isElement: function (element) {
-                          return element && element[0] && element.find('.popover__arrow')[0];
-                      }
-                  });
-
-              var MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
-                  '<div class="popover__content">$[properties.balloonContent]</div>'
-              );
-
-              contactsMap.behaviors.disable(['scrollZoom']);
-
-              var collection = {
-                  type: "FeatureCollection",
-                  features: []
-              };
-
-              for (var i = 0; i < markers.length; i++) {
-                  var marker = markers[i];
-                  var item = data[i];
-                  var phones = '';
-                  // Поправь ключи массив в зависимости от компонента
-                  if (Array.isArray(data[i].PROPERTY_PHONE_VALUE)) {
-                      data[i].PROPERTY_PHONE_VALUE.forEach(item => {
-                          phones += `<a href="tel:${item.replace(/[^\d]/g,'')}">${item}</a>`
-                      });
-                  } else {
-                      phones = `<a href="tel:${data[i].PROPERTY_PHONE_VALUE.replace(/[^\d]/g,'')}">${data[i].PROPERTY_PHONE_VALUE}</a>`
-                  }
-
-                  var balloon = `
-                 <div class="ballon">
-                      <div class="ballon__head">
-                         <div class="baloon__head-text">
-                             ${data[i].NAME}
-                         </div>
-                     </div>
-                     <div class="baloon__body">
-                         <div class="baloon__props">
-                             <div style="${data[i].PROPERTY_ADDRESS_VALUE ? '' : 'display:none'}" class="baloon__line">
-                                 <svg class="icon icon-map-address"><use xlink:href="#icon-map-address"></use></svg>
-                                 <span>${item.PROPERTY_ADDRESS_VALUE}</span>
-                             </div>
-                             <div style="${data[i].PROPERTY_PHONE_VALUE ? '' : 'display:none'}" class="baloon__line">
-                                 <svg class="icon icon-map-phone"><use xlink:href="#icon-map-phone"></use></svg>
-                                 ${phones}
-                             </div>
-                              <div style="${data[i].PROPERTY_MAIL_VALUE ? '' : 'display:none'}" class="baloon__line">
-                                 <svg class="icon icon-map-mail"><use xlink:href="#icon-map-mail"></use></svg>
-                                  <a href="mailto:${item.PROPERTY_MAIL_VALUE}">${item.PROPERTY_MAIL_VALUE}</a>
-                             </div>
-                             <div style="${data[i].PROPERTY_LINK_VALUE ? '' : 'display:none'}" class="baloon__line">
-                                 <svg class="icon icon-map-geo"><use xlink:href="#icon-map-geo"></use></svg>
-                                 <a href="${item.PROPERTY_LINK_VALUE}">${item.PROPERTY_LINK_VALUE}</a>
-                             </a>
-                         </div>
-                     </div>
-                 </div>
-                 `;
-
-                  collection.features.push(
-                      setTypePoint(
-                      {
-                          type: 'Feature',
-                          id: i,
-                          geometry: {
-                              type: 'Point',
-                              coordinates: marker,
-                              options: {
-                                  pixelRendering: "static"
-                              }
-                          },
-                          properties: {
-                              balloonContent: balloon,
-                              hintContent: item.NAME,
-                              type: item[keyPropertyType]
-                          },
-                          options: {
-                              balloonLayout: MyBalloonLayout,
-                              balloonContentLayout: MyBalloonContentLayout,
-                          }
-                      }
-                  )
-                  )
-              }
-              objectManager.add(collection)
-
-              contactsMap.geoObjects.add(objectManager);
-
-              contactsMap.controls.add('zoomControl', {
-                  size: 'small',
-                  float: 'none',
-                  position: {
-                      top: mapHeight / 2 - 30,
-                      right: '45px'
-                  }
-              });
+                if ("options" in object) {
+                    pointProps = getPointOptions(type);
+                    for (prop in pointProps) {
+                        object.options[prop] = pointProps[prop];
+                    }
+                }
+                return object;
+            }
 
 
 
-          function setState () {
 
-              let filter = new Array,
-              filterQuery = '';
+                var MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+                    '<div class="popover">' +
+                    '<div class="popover__arrow"></div>' +
+                    '<div class="popover__inner">' +
+                    '<a class="popover__close" href="#">' +
+                    '<svg class="icon icon-close">' +
+                    '<use xlink:href="#icon-close"></use>' +
+                    '</svg>' +
+                    '</a>' +
+                    '$[[options.contentLayout observeSize minWidth=300 maxWidth=480]]' +
+                    '<span class="popover__tail"></span>' +
+                    '</div>' +
+                    '</div>', {
+                        build: function () {
+                            this.constructor.superclass.build.call(this);
 
-              if ($(".js-map-filter-input:checked").length >= 1) {
-                  $(".js-map-filter-input:checked").each(function() {
-                      filter.push(`properties.type == '${$(this).data('type')}'`);
-                  });
-                  if (filter.length > 1) {
-                      filterQuery = filter.join(' || ');
-                  } else {
-                      filterQuery = filter[0];
-                  }
-                  objectManager.setFilter(filterQuery);
+                            this._$element = $('.popover', this.getParentElement());
 
-              } else {
-                  objectManager.setFilter();
-              }
+                            this.applyElementOffset();
 
-              contactsMap.setBounds(contactsMap.geoObjects.getBounds(),
-                  {checkZoomRange:true, zoomMargin:100}).then(function(){ if(contactsMap.getZoom() > 14) contactsMap.setZoom(14);});
-          }
+                            this._$element.find('.popover__close')
+                                .on('click', $.proxy(this.onCloseClick, this));
+                        },
+                        clear: function () {
+                            this._$element.find('.popover__close')
+                                .off('click');
 
-          $('.location__filter-input').click(setState);
+                            this.constructor.superclass.clear.call(this);
+                        },
+                        onSublayoutSizeChange: function () {
+                            MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                            if (!this._isElement(this._$element)) {
+                                return;
+                            }
+
+                            this.applyElementOffset();
+
+                            this.events.fire('shapechange');
+                        },
+                        applyElementOffset: function () {
+                            this._$element.css({
+                                left: -(this._$element[0].offsetWidth / 5),
+                                top: -(this._$element[0].offsetHeight + this._$element.find('.popover__arrow')[0].offsetHeight - 150)
+                            });
+                        },
+                        onCloseClick: function (e) {
+                            e.preventDefault();
+
+                            this.events.fire('userclose');
+                        },
+                        getShape: function () {
+                            if (!this._isElement(this._$element)) {
+                                return MyBalloonLayout.superclass.getShape.call(this);
+                            }
+
+                            var position = this._$element.position();
+
+                            return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                                [position.left, position.top], [
+                                    position.left + this._$element[0].offsetWidth,
+                                    position.top + this._$element[0].offsetHeight + this._$element.find('.popover__arrow')[0].offsetHeight
+                                ]
+                            ]));
+                        },
+                        _isElement: function (element) {
+                            return element && element[0] && element.find('.popover__arrow')[0];
+                        }
+                    });
+
+                var MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+                    '<div class="popover__content">$[properties.balloonContent]</div>'
+                );
+
+                contactsMap.behaviors.disable(['scrollZoom']);
+
+                var collection = {
+                    type: "FeatureCollection",
+                    features: []
+                };
+
+                for (var i = 0; i < markers.length; i++) {
+                    var marker = markers[i];
+                    var item = data[i];
+                    var phones = '';
+                    // Поправь ключи массив в зависимости от компонента
+                    if (Array.isArray(data[i].PROPERTY_PHONE_VALUE)) {
+                        data[i].PROPERTY_PHONE_VALUE.forEach(item => {
+                            phones += `<a href="tel:${item.replace(/[^\d]/g,'')}">${item}</a>`
+                        });
+                    } else {
+                        phones = `<a href="tel:${data[i].PROPERTY_PHONE_VALUE.replace(/[^\d]/g,'')}">${data[i].PROPERTY_PHONE_VALUE}</a>`
+                    }
+
+                    var balloon = `
+                   <div class="ballon">
+                        <div class="ballon__head">
+                           <div class="baloon__head-text">
+                               ${data[i].NAME}
+                           </div>
+                       </div>
+                       <div class="baloon__body">
+                           <div class="baloon__props">
+                               <div style="${data[i].PROPERTY_DESC_VALUE ? '' : 'display:none'}" class="baloon__line">
+                                    <span class="baloon__line-icon">
+                                        <img src="${item.PROPERTY_ICON}" alt="${item.PROPERTY_DESC_VALUE}" title="${item.PROPERTY_DESC_VALUE}">
+                                    </span>
+                                   <span>${item.PROPERTY_DESC_VALUE}</span>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                   `;
+
+                    collection.features.push(
+                        setTypePoint(
+                        {
+                            type: 'Feature',
+                            id: i,
+                            geometry: {
+                                type: 'Point',
+                                coordinates: marker,
+                                options: {
+                                    pixelRendering: "static"
+                                }
+                            },
+                            properties: {
+                                balloonContent: balloon,
+                                hintContent: item.NAME,
+                                type: item[keyPropertyType]
+                            },
+                            options: {
+                                balloonLayout: MyBalloonLayout,
+                                balloonContentLayout: MyBalloonContentLayout,
+                            }
+                        }
+                    )
+                    )
+                }
+                objectManager.add(collection)
+
+                contactsMap.geoObjects.add(objectManager);
+
+                contactsMap.controls.add('zoomControl', {
+                    size: 'small',
+                    float: 'none',
+                    position: {
+                        top: mapHeight / 2 - 30,
+                        right: '45px'
+                    }
+                });
 
 
-              contactsMap.setBounds(contactsMap.geoObjects.getBounds(),
-                  {checkZoomRange:true, zoomMargin:100}).then(function(){ if(contactsMap.getZoom() > 14) contactsMap.setZoom(14);});
-          });
 
-      }
+            function setState () {
 
-  });
+                let filter = new Array,
+                filterQuery = '';
+
+                if ($(".js-map-filter-input:checked").length >= 1) {
+                    $(".js-map-filter-input:checked").each(function() {
+                        filter.push(`properties.type == '${$(this).data('type')}'`);
+                    });
+                    if (filter.length > 1) {
+                        filterQuery = filter.join(' || ');
+                    } else {
+                        filterQuery = filter[0];
+                    }
+                    objectManager.setFilter(filterQuery);
+
+                } else {
+                    objectManager.setFilter();
+                }
+
+                contactsMap.setBounds(contactsMap.geoObjects.getBounds(),
+                    {checkZoomRange:true, zoomMargin:100}).then(function(){ if(contactsMap.getZoom() > 14) contactsMap.setZoom(14);});
+            }
+
+            $('.location__filter-input').click(setState);
+
+
+                contactsMap.setBounds(contactsMap.geoObjects.getBounds(),
+                    {checkZoomRange:true, zoomMargin:100}).then(function(){ if(contactsMap.getZoom() > 14) contactsMap.setZoom(14);});
+            });
+
+        }
+
+    });
 
 </script>
 </div>

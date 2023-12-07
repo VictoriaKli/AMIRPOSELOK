@@ -3991,7 +3991,7 @@ border-bottom: 1px solid #F0F0F0;
   }
 
   .location-mp__map-filter::-webkit-scrollbar{
-    height: 10px;
+    height: 6px;
     padding-left: 20px;
   }
 
@@ -6275,6 +6275,16 @@ section{
   }
 }
 
+.popover__tail{
+  border: 11px solid transparent;
+  border-top-color: #fff;
+  margin-left: -10px;
+  position: absolute;
+  left: -12px;
+  top: 18%;
+  transform: rotate(90deg);
+}
+
 @media(max-width: 1199px){
   .contacts__list{
     grid-template-columns: repeat(2, calc(50% - 21px));
@@ -6754,7 +6764,7 @@ section{
   display: flex;
   align-items: center;
   column-gap: 14px;
-  z-index: 2;
+  z-index: 7;
 }
 
 .genplan__desc{
@@ -6799,7 +6809,7 @@ section{
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--black2);
+    background-color: #68753c;
     border: none;
   }
 
@@ -7012,7 +7022,7 @@ box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
 .genplan__desc-arrow{
   position: absolute;
   left:0;
-  top: calc((50% - 20px));
+  top: calc((50% - 24px));
   z-index: 10;
   font-size: 40px;
   color: var(--white);
@@ -7050,6 +7060,46 @@ box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
     top:45px;
   }
   .genplan__desc-wp {
-    bottom: 40px;
+    bottom: 20px;
+    padding: 7px 15px;
+  }
+
+  .genplan__desc-icon{
+    height: 11px;
+    width: 11px;
+  }
+
+  .genplan__desc{
+    font-size: 9px;
+    line-height: 11px;
+  }
+  .genplan__desc-arrow{
+    font-size: 28px;
+  }
+
+  .genplan__balloon-head-name{
+    font-size: 16px;
+  }
+
+  .genplan__balloon-body-item-value{
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .genplan__balloon-body-footer-price{
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .genplan__balloon-head{
+    padding-bottom: 10px;
+  }
+
+  .genplan__balloon-body-row{
+    padding-top: 4px;
+  }
+
+  .genplan__balloon-simple{
+    font-size: 15px;
   }
 }
