@@ -281,10 +281,10 @@
         </div>
     </div>
    <div class="genplan__wp">
-    <div class="genplan__desc-arrow genplan__desc-arrow--prev">
+    <div class="genplan__desc-arrow genplan__desc-arrow--prev js-genplay-arrow" data-type="minus">
         <svg class="icon icon-arrow-prev"><use xlink:href="#icon-arrow-prev"></use></svg>
     </div>
-    <div class="genplan__desc-arrow genplan__desc-arrow--next">
+    <div class="genplan__desc-arrow genplan__desc-arrow--next js-genplay-arrow" data-type="plus">
         <svg class="icon icon-arrow-next"><use xlink:href="#icon-arrow-next"></use></svg>
     </div>
     <div class="genplan__img js-genplan-container">
@@ -294,6 +294,14 @@
             <path class="genplan-area js-area" data-type="interactive" data-link-area="12" fill="none" d="m 382.28717,105.40251 14.11819,7.4073 -10.57487,9.69644 -14.49398,-7.60174"></path>
 
             <svg cursor="pointer" class="genplan__circle js-point" data-link-area="12" data-text="Коттедж №38" data-props='{"ДОМ":"159 м2", "Участок":"10 соток"}' data-price="16 000 000 ₽" data-type="interactive" data-balloon="object" x="56%" y="55%" width="30px">
+                <circle  cx="5" cy="5" r="4"></circle>
+                <text x="5" y="6.4" text-anchor="middle">12</text>
+            </svg>
+            <svg cursor="pointer" class="genplan__circle js-point" data-link-area="13" data-text="Коттедж №38" data-props='{"ДОМ":"159 м2", "Участок":"10 соток"}' data-price="16 000 000 ₽" data-type="interactive" data-balloon="object" x="40%" y="90%" width="30px">
+                <circle  cx="5" cy="5" r="4"></circle>
+                <text x="5" y="6.4" text-anchor="middle">12</text>
+            </svg>
+            <svg cursor="pointer" class="genplan__circle js-point" data-link-area="14" data-text="Коттедж №38" data-props='{"ДОМ":"159 м2", "Участок":"10 соток"}' data-price="16 000 000 ₽" data-type="interactive" data-balloon="object" x="40%" y="5%" width="30px">
                 <circle  cx="5" cy="5" r="4"></circle>
                 <text x="5" y="6.4" text-anchor="middle">12</text>
             </svg>
@@ -350,6 +358,7 @@
             </span>
         </div>
         <div class="genplan__balloon-object genplan__balloon js-balloon" data-balloon="object" data-type="interactive">
+            <span class="genplan__balloon-tail js-balloon-tail"></span>
             <div class="genplan__balloon-head">
                 <span class="genplan__balloon-head-name js-balloon-name">
 
@@ -384,6 +393,39 @@
             }
             $('.js-balloon').removeClass('is-active')
         }
+        let idx;
+        function scrollMap() {
+            let scrollContainer = map.find('.js-genplan-container');
+
+
+            function scrollMapRight(object) {
+                object.mouseenter(function(){
+                    console.log('wow')
+                    idx = setInterval(() => scrollContainer[0].scrollLeft += 3, 5);
+                });
+                object.mouseleave(function(){
+                    clearInterval(idx);
+                });
+            }
+
+            function scrollMapLeft(object) {
+                object.mouseenter(function(){
+                    idx = setInterval(() => scrollContainer[0].scrollLeft -= 3, 5);
+                });
+                object.mouseleave(function(){
+                    clearInterval(idx);
+                });
+            }
+
+            $('.js-genplay-arrow').each(function() {
+                if ($(this).data('type')&& $(this).data('type') == 'minus') {
+                    scrollMapLeft($(this));
+                }
+                if ($(this).data('type') && $(this).data('type') == 'plus') {
+                    scrollMapRight($(this));
+                }
+            });
+        }
 
         function setArea(object) {
             if (object.data('link-area')) {
@@ -417,7 +459,6 @@
                 clearMapState(map);
                 object.addClass('is-active');
                 balloon.find('.js-balloon-name').text(object.data('text'));
-                setBalloonPosition(object, object.data('balloon'));
                 if (object.data('link-area'))
                     setColorArea(+object.data('link-area'))
                 if (object.data('props') && typeof object.data('props') == 'object')
@@ -425,6 +466,7 @@
                 if (object.data('price'))
                     balloon.find('.js-balloon-price').text(object.data('price'));
 
+                setBalloonPosition(object, object.data('balloon'));
             } else {
                 clearMapState(map);
             }
@@ -469,17 +511,38 @@
                     balloonHeight = balloon.outerHeight(),
                     containerScrollPosition = point.parents('.js-genplan-container').scrollLeft(),
                     containerTopPosition = point.parents('.js-genplan-container').offset().top;
-
                 // Устанавливаем позицию элемента по X
                 balloon.css('left', Math.floor(pointLeft + containerScrollPosition) -  balloonWidth);
 
                 // Устанавливаем позицию элемента по Y
                 balloon.css('top',  Math.floor((pointPositionTop - containerTopPosition) + ((pointHeight - balloonHeight) / 2)));
 
+                // Проверяем положение балуна, если уходит за пределы экрана - смещаем
+
+                // Если балун ушел за пределы нижней грани
+                if ((balloon.offset().top + balloonHeight) > containerTopPosition + point.parents('.js-genplan-container').outerHeight()) {
+                    balloon.css('top',  Math.floor((pointPositionTop - containerTopPosition) - ((balloonHeight - (pointHeight * 2) - 10))));
+                    if (balloon.find('.js-balloon-tail').length) {
+                        balloon.find('.js-balloon-tail').css('top', balloonHeight - (pointHeight * 2));
+                    }
+                } else if (balloon.offset().top < containerTopPosition) {
+                    balloon.css('top',  Math.floor((pointPositionTop - containerTopPosition - (pointHeight / 2) - 10) ));
+                    if (balloon.find('.js-balloon-tail').length) {
+                        balloon.find('.js-balloon-tail').css('top', pointHeight + 10);
+                    }
+                } else {
+                    if (balloon.find('.js-balloon-tail').length) {
+                        balloon.find('.js-balloon-tail').css('top', '');
+                    }
+                }
+
                 // Устанавливаем класс активности после пересчета позиции
                 balloon.addClass('is-active');
             }
         }
+
+
+
         $('[data-balloon]').each(function() {
             setBalloon($(this));
         });
@@ -488,6 +551,8 @@
             if ($(this).data('link-area'))
                 setArea($(this));
         });
+
+        scrollMap();
 
 
     });

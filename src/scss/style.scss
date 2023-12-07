@@ -3854,8 +3854,8 @@ border-bottom: 1px solid #F0F0F0;
   &::before{
     position: absolute;
     content: "";
-    width: 739px;
-    height: 257px;
+    width: 630px;
+    height: 185px;
     background: rgba(255, 255, 255, 0.76);
     filter: blur(67px);
     // background: url('../img/svg/location-bg.svg');
@@ -3967,7 +3967,7 @@ border-bottom: 1px solid #F0F0F0;
     position: absolute;
     left: 0;
     bottom: 80px;
-    height: 72px;
+    height: 60px;
     border-radius: 85px 0 0 85px;
     background: var(--white);
     -webkit-box-shadow: 0px 7px 24px 0px rgba(21, 75, 34, 0.27);
@@ -3991,7 +3991,7 @@ border-bottom: 1px solid #F0F0F0;
   }
 
   .location-mp__map-filter::-webkit-scrollbar{
-    height: 6px;
+    height: 0px;
     padding-left: 20px;
   }
 
@@ -4015,7 +4015,7 @@ border-bottom: 1px solid #F0F0F0;
   }
 
   .location-mp__map-filter-wp{
-    height: 52px;
+    height: 40px;
     bottom: 40px;
   }
 
@@ -4034,7 +4034,7 @@ border-bottom: 1px solid #F0F0F0;
   .location-mp{
     overflow: hidden;
     &::before{
-      height: 140px;
+      height: 120px;
       width: 100%;
       background: rgba(255, 255, 255, 0.9);
       filter: blur(24px);
@@ -6267,7 +6267,9 @@ section{
   &.baloon__line--location{
     align-items: start;
   }
-
+  img {
+    height: 31px;
+  }
   svg{
     color: var(--gray);
     font-size: 24px;
@@ -6799,13 +6801,13 @@ section{
 
   &::-webkit-scrollbar {
     width: 8px;
-    height: 8px;
+    height: 0px;
     cursor: pointer;
   }
 
   &::-webkit-scrollbar-track {
     background: #e4f0e4;
-    opacity: .9;
+    opacity: 0;
   }
 
   &::-webkit-scrollbar-thumb {
@@ -6816,6 +6818,7 @@ section{
   &::-webkit-scrollbar-thumb:hover {
     color: rgba(255, 255, 255, 0.20);
   }
+
 }
 
 
@@ -6837,8 +6840,8 @@ section{
   z-index: 2;
 }
 .genplan__circle {
-  width: 28px;
-  height: 28px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
 }
 .genplan__circle > circle{
@@ -6919,8 +6922,8 @@ box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
   transform: translateX(-20px);
   opacity: 0;
   -webkit-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
--moz-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
 
   &.is-active {
     // transform: translateX(0);
@@ -6930,6 +6933,16 @@ box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
 .genplan__balloon {
   display: flex;
   flex-direction: column;
+
+  &-tail {
+    position: absolute;
+  top: calc(50% - 0px);
+  width: 10px;
+  height: 10px;
+  right: -5px;
+  background: var(--white);
+  transform: rotate(45deg);
+  }
   &-head {
     display: flex;
     align-items: center;
@@ -6949,11 +6962,14 @@ box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
     &-row {
       padding-top: 10px;
       display: flex;
-      column-gap: 20px;
+      column-gap: 0;
+      flex-wrap: wrap;
     }
     &-item {
       display: flex;
       flex-direction: column;
+      align-items: flex-start;
+      width: calc(50% - 5px);
       &-name {
         color: var(--8A8A8A, #8A8A8A);
         font-size: 10px;
@@ -6985,16 +7001,7 @@ box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
 
-.genplan__balloon-object::after {
-  content: "";
-  position: absolute;
-  top: calc(50% - 5px);
-  width: 10px;
-  height: 10px;
-  right: -5px;
-  background: var(--white);
-  transform: rotate(45deg);
-}
+
 .genplan-area{
   color: rgba(228, 228, 228, 0.49);
   fill: transparent;
@@ -7029,10 +7036,20 @@ box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
   cursor: pointer;
   padding: 10px;
   transition: all .3s ease-out;
+  height: 100%;
+  top: 0;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background: rgba(0, 0, 0, 0.20);
+  }
 
   &.genplan__desc-arrow--next{
     left: initial;
     right: 0;
+
     // padding: 10px 0 10px 10px;
   }
 
@@ -7075,6 +7092,7 @@ box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
   }
   .genplan__desc-arrow{
     font-size: 28px;
+    display: none;
   }
 
   .genplan__balloon-head-name{
@@ -7101,5 +7119,26 @@ box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
 
   .genplan__balloon-simple{
     font-size: 15px;
+  }
+  .genplan__img {
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+      cursor: pointer;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #e4f0e4;
+      opacity: .9;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #68753c;
+      border: none;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      color: rgba(255, 255, 255, 0.20);
+    }
   }
 }
